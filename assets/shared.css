@@ -1,0 +1,167 @@
+/* ============================================================
+   Qualamantis — Shared Stylesheet
+   Editorial direction · Newsreader + Hanken Grotesk
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=Hanken+Grotesk:ital,wght@0,300..700;1,400&display=swap');
+
+/* ---- Tokens ---- */
+:root {
+  --paper:      #FAF6EF;
+  --paper-2:    #F3EDE2;
+  --paper-3:    #EDE5D5;
+  --ink:        #221E18;
+  --ink-soft:   #564F44;
+  --terra:      #BC4827;
+  --terra-d:    #9A3A1F;
+  --olive:      #4E6B3C;
+  --hair:       rgba(34,30,24,.13);
+  --serif:      "Newsreader", Georgia, serif;
+  --sans:       "Hanken Grotesk", "Helvetica Neue", sans-serif;
+  --mono:       ui-monospace, "SFMono-Regular", monospace;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+::selection { background:var(--terra); color:var(--paper); }
+img { display:block; max-width:100%; height:auto; }
+a { color:inherit; }
+h1,h2,h3,h4 { text-wrap:pretty; }
+ul { list-style:none; }
+
+/* ---- Layout ---- */
+.wrap { max-width:1240px; margin:0 auto; padding:0 52px; }
+@media(max-width:760px){ .wrap { padding:0 24px; } }
+
+/* ---- Typography ---- */
+.eyebrow {
+  font-size:11.5px; letter-spacing:.24em; text-transform:uppercase;
+  font-weight:600; color:var(--terra); display:flex; align-items:center; gap:14px;
+}
+.eyebrow::before { content:""; display:block; width:26px; height:1px; background:currentColor; flex-shrink:0; }
+.eyebrow.bare::before { display:none; }
+
+h2.serif { font-family:var(--serif); font-weight:300; font-size:clamp(34px,3.8vw,56px); line-height:1.08; letter-spacing:-.015em; }
+h2.serif em { font-style:italic; color:var(--terra); }
+
+p.lede { color:var(--ink-soft); font-size:17.5px; max-width:52ch; }
+
+/* ---- Buttons ---- */
+.btn-fill { display:inline-flex; align-items:center; font-family:var(--sans); font-size:14px; font-weight:600; letter-spacing:.04em; text-decoration:none; padding:14px 28px; border-radius:99px; background:var(--terra); color:var(--paper); transition:background .25s, transform .2s; border:none; cursor:pointer; }
+.btn-fill:hover { background:var(--terra-d); transform:translateY(-2px); }
+.btn-fill.light { background:var(--paper); color:var(--ink); }
+.btn-fill.light:hover { background:var(--paper-2); transform:translateY(-2px); }
+
+.btn-line { display:inline-flex; align-items:center; font-family:var(--sans); font-size:14px; font-weight:600; letter-spacing:.04em; text-decoration:none; padding:14px 6px; border-bottom:1.5px solid currentColor; color:var(--ink); transition:color .2s; }
+.btn-line:hover { color:var(--terra); }
+.btn-line.light { color:rgba(250,246,239,.8); }
+.btn-line.light:hover { color:var(--terra); }
+
+.btn-group { display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+
+/* ---- Scroll Reveal ---- */
+.sr { opacity:0; transform:translateY(22px); transition:opacity .85s cubic-bezier(.2,.65,.2,1), transform .85s cubic-bezier(.2,.65,.2,1); }
+.sr.in { opacity:1; transform:none; }
+.sr.d1 { transition-delay:.1s; } .sr.d2 { transition-delay:.22s; } .sr.d3 { transition-delay:.34s; }
+@media(prefers-reduced-motion:reduce){ .sr,.sr.in { opacity:1; transform:none; transition:none; } }
+
+/* ---- Accordion ---- */
+.accordion { border-top:1px solid var(--hair); }
+.acc-item { border-bottom:1px solid var(--hair); }
+.acc-bar { display:grid; grid-template-columns:56px 1fr auto; gap:16px; align-items:center; padding:26px 0; cursor:pointer; }
+.acc-bar:hover .acc-title { color:var(--terra); }
+.acc-num { font-family:var(--serif); font-style:italic; font-size:24px; font-weight:300; color:var(--terra); }
+.acc-title { font-family:var(--serif); font-weight:400; font-size:clamp(20px,2.1vw,28px); transition:color .2s; }
+.acc-toggle { font-size:22px; font-weight:300; color:var(--ink-soft); transition:transform .45s cubic-bezier(.2,.65,.2,1); }
+.acc-item.open .acc-toggle { transform:rotate(45deg); color:var(--terra); }
+.acc-body { display:grid; grid-template-rows:0fr; transition:grid-template-rows .55s cubic-bezier(.2,.65,.2,1); }
+.acc-item.open .acc-body { grid-template-rows:1fr; }
+.acc-inner { overflow:hidden; }
+
+/* ---- Diamond list ---- */
+.dlist { display:flex; flex-direction:column; gap:14px; }
+.dlist li { display:grid; grid-template-columns:18px 1fr; gap:12px; font-size:15.5px; }
+.dlist li::before { content:"◆"; color:var(--terra); font-size:8px; line-height:2.3; }
+.dlist b { font-weight:600; }
+.dlist small { display:block; color:var(--ink-soft); font-size:13.5px; margin-top:2px; }
+
+/* ---- Check list ---- */
+.cklist { display:flex; flex-direction:column; gap:14px; }
+.cklist li { display:flex; gap:14px; align-items:baseline; font-size:16.5px; }
+.cklist li::before { content:"✓"; color:var(--terra); font-weight:700; flex-shrink:0; }
+
+/* ---- NAV ---- */
+header.site-header {
+  position:fixed; top:0; left:0; right:0; z-index:50;
+  background:rgba(250,246,239,.92);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--hair);
+}
+.nav-row { display:flex; align-items:center; justify-content:space-between; height:72px; }
+.brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); }
+.brand img { height:33px; }
+.brand-name { font-weight:700; letter-spacing:.18em; font-size:13px; text-transform:uppercase; }
+.nav-links { display:flex; align-items:center; gap:32px; }
+.nav-links a { text-decoration:none; color:var(--ink-soft); font-size:13px; letter-spacing:.05em; font-weight:500; transition:color .2s; }
+.nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--terra); }
+.nav-end { display:flex; align-items:center; gap:16px; }
+.lang-sw { display:flex; border:1px solid var(--hair); border-radius:99px; padding:3px; gap:2px; }
+.lang-sw button { border:0; background:transparent; font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.08em; padding:4px 10px; border-radius:99px; cursor:pointer; color:var(--ink-soft); transition:all .2s; }
+.lang-sw button.on { background:var(--ink); color:var(--paper); }
+.nav-cta { font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.04em; color:var(--paper); background:var(--ink); text-decoration:none; padding:10px 22px; border-radius:99px; transition:background .25s; }
+.nav-cta:hover { background:var(--terra); }
+@media(max-width:980px){ .nav-links { display:none; } }
+@media(max-width:600px){ .lang-sw { display:none; } }
+
+/* ---- FOOTER ---- */
+footer.site-footer { padding:54px 0 28px; border-top:1px solid var(--hair); background:var(--paper); }
+.footer-grid { display:grid; grid-template-columns:1.3fr .85fr .85fr 1.15fr; gap:42px; align-items:start; }
+.footer-logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); margin-bottom:18px; }
+.footer-logo img { height:31px; width:auto; }
+.footer-logo span { font-weight:700; letter-spacing:.18em; font-size:13px; }
+.footer-brand p, .footer-col p, .footer-col span { color:var(--ink-soft); font-size:13.5px; line-height:1.55; max-width:32ch; }
+.footer-col h4 { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--terra); margin-bottom:14px; font-weight:700; }
+.foot-nav { display:flex; flex-direction:column; gap:8px; }
+.foot-nav a, .footer-col a { font-size:13.5px; color:var(--ink-soft); text-decoration:none; transition:color .2s; }
+.foot-nav a:hover, .footer-col a:hover { color:var(--terra); }
+.footer-bottom { display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-top:42px; padding-top:20px; border-top:1px solid var(--hair); color:var(--ink-soft); font-size:12.5px; }
+.footer-bottom .motto { font-family:var(--serif); font-style:italic; color:var(--terra); font-size:14px; }
+@media(max-width:900px){ .footer-grid { grid-template-columns:1fr 1fr; gap:34px; } }
+@media(max-width:620px){ .footer-grid { grid-template-columns:1fr; } .footer-bottom { flex-direction:column; gap:8px; } }
+
+/* ---- Page hero banner (inner pages) ---- */
+.pg-hero { padding:160px 0 80px; border-bottom:1px solid var(--hair); }
+.pg-hero-grid { display:grid; grid-template-columns:1.15fr 1fr; gap:80px; align-items:end; }
+@media(max-width:860px){ .pg-hero-grid { grid-template-columns:1fr; gap:28px; } }
+.pg-crumb { display:flex; align-items:center; gap:8px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); font-weight:500; margin-bottom:28px; }
+.pg-crumb a { text-decoration:none; color:var(--ink-soft); transition:color .2s; }
+.pg-crumb a:hover { color:var(--terra); }
+.pg-crumb span { color:var(--terra); }
+h1.pg-title { font-family:var(--serif); font-weight:300; font-size:clamp(50px,5.8vw,86px); line-height:1.02; letter-spacing:-.016em; }
+h1.pg-title em { font-style:italic; color:var(--terra); }
+.pg-hero p.lede { font-size:15.8px; line-height:1.6; max-width:44ch; }
+
+/* ---- Section spacing ---- */
+.sec { padding:110px 0; }
+.sec-sm { padding:72px 0; }
+.bg-2 { background:var(--paper-2); }
+.bg-ink { background:var(--ink); color:var(--paper); }
+.bg-ink .eyebrow { color:rgba(250,246,239,.7); }
+.bg-ink .eyebrow::before { background:var(--terra); }
+.bg-ink h2.serif { color:var(--paper); }
+.bg-ink h2.serif em { color:var(--terra); }
+.bg-ink p.lede { color:rgba(250,246,239,.65); }
+
+/* ---- Two-col section header ---- */
+.sec-head { display:grid; grid-template-columns:1fr 1.2fr; gap:64px; margin-bottom:64px; align-items:end; }
+@media(max-width:860px){ .sec-head { grid-template-columns:1fr; gap:16px; margin-bottom:40px; } }
+
+/* ---- Shared CTA banner ---- */
+.cta-band { text-align:center; position:relative; overflow:hidden; }
+.cta-band .cta-q-bg { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:460px; opacity:.055; pointer-events:none; }
+.cta-band .eyebrow { justify-content:center; }
+.cta-band h2.serif { max-width:22ch; margin:24px auto 16px; }
+.cta-band p.lede { margin:0 auto; max-width:50ch; }
+.cta-band .btn-group { justify-content:center; margin-top:36px; }

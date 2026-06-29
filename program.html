@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Program — Qualamantis</title>
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+/* ---- LOOP VIZ ---- */
+.pg-hero { padding-bottom:108px; }
+.loop-viz { display:flex; align-items:stretch; gap:0; margin:140px 0 0; border:1px solid var(--hair); }
+.loop-step { flex:1; padding:34px 28px; border-right:1px solid var(--hair); transition:background .3s; }
+.loop-step:last-child { border-right:0; }
+.loop-step:hover { background:var(--paper-2); }
+.loop-n { font-family:var(--serif); font-style:italic; font-size:40px; font-weight:200; color:var(--terra); line-height:1; }
+.loop-label { font-family:var(--serif); font-weight:400; font-size:22px; margin:10px 0 8px; }
+.loop-desc { font-size:14.5px; color:var(--ink-soft); max-width:28ch; }
+.loop-connector { display:flex; align-items:center; gap:16px; margin-top:16px; padding:0 2px; }
+.loop-connector::before, .loop-connector::after { content:""; flex:1; height:1px; background:var(--hair); }
+.loop-connector span { font-family:var(--serif); font-style:italic; font-size:14px; color:var(--ink-soft); text-align:center; }
+@media(max-width:760px){ .loop-viz{flex-direction:column;} .loop-step{border-right:0;border-bottom:1px solid var(--hair);} .loop-step:last-child{border-bottom:0;} }
+
+/* ---- AXIS SECTIONS ---- */
+.axis-section { padding-top:132px; padding-bottom:140px; }
+.axis-chapter { display:grid; grid-template-columns:120px 1fr; gap:32px; margin-bottom:100px; }
+@media(max-width:860px){ .axis-chapter{grid-template-columns:1fr;gap:12px;} }
+.chapter-n { font-family:var(--serif); font-style:italic; font-size:100px; font-weight:200; color:rgba(34,30,24,.09); line-height:1; margin-top:-12px; }
+.axis-content-grid { display:grid; grid-template-columns:1fr; gap:64px; align-items:start; }
+@media(max-width:980px){ .axis-content-grid{grid-template-columns:1fr;} }
+
+/* ---- METHOD grid ---- */
+.method-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hair); border:1px solid var(--hair); margin-top:36px; }
+@media(max-width:720px){ .method-grid{grid-template-columns:1fr;} }
+.method-cell { background:var(--paper); padding:28px 28px 30px; transition:background .3s; }
+.method-cell:hover { background:var(--paper-2); }
+.method-cell h4 { font-family:var(--serif); font-weight:500; font-size:19px; margin-bottom:8px; }
+.method-cell p { font-size:15px; color:var(--ink-soft); max-width:36ch; }
+
+/* ---- OUTCOMES ---- */
+.outcomes { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:36px; }
+@media(max-width:720px){ .outcomes{grid-template-columns:1fr;gap:18px;} }
+.outcome { padding:28px 24px; border:1px solid var(--hair); transition:border-color .3s; }
+.outcome:hover { border-color:var(--terra); }
+.outcome-n { font-family:var(--serif); font-style:italic; font-size:36px; font-weight:200; color:var(--terra); line-height:1; }
+.outcome h4 { font-family:var(--serif); font-weight:500; font-size:19px; margin:12px 0 8px; }
+.outcome p { font-size:14.5px; color:var(--ink-soft); }
+
+/* ---- WORKSTREAMS accordion body ---- */
+.ws-body { padding:8px 0 36px 72px; display:grid; grid-template-columns:1fr 1fr; gap:36px 48px; }
+@media(max-width:760px){ .ws-body{grid-template-columns:1fr;padding-left:0;} }
+.ws-body p { color:var(--ink-soft); font-size:15.5px; max-width:50ch; }
+
+/* ---- PROCESSES list ---- */
+.proc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); margin-top:28px; }
+@media(max-width:760px){ .proc-grid{grid-template-columns:1fr;} }
+.proc-cell { background:var(--paper); padding:22px 22px 24px; transition:background .3s; }
+.proc-cell:hover { background:var(--paper-2); }
+.proc-cell h5 { font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:6px; }
+.proc-cell p { font-size:14px; color:var(--ink-soft); }
+
+/* ---- COMPETENCE two-col ---- */
+.comp-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:28px; }
+@media(max-width:720px){ .comp-grid{grid-template-columns:1fr;} }
+.comp-col { border:1px solid var(--hair); padding:28px; }
+.comp-col h5 { font-family:var(--serif); font-weight:500; font-size:18px; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+.comp-badge { font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.1em; background:var(--terra); color:var(--paper); padding:3px 8px; border-radius:4px; }
+
+/* ---- LEVERS ---- */
+.levers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); }
+@media(max-width:760px){ .levers-grid{grid-template-columns:1fr;} }
+.lever { background:var(--paper); padding:40px 34px; transition:background .3s; }
+.lever:hover { background:var(--paper-2); }
+.lever-n { font-family:var(--serif); font-style:italic; font-size:28px; font-weight:200; color:var(--terra); }
+.lever h3 { font-family:var(--serif); font-weight:400; font-size:24px; margin:14px 0 10px; }
+.lever-q { font-family:var(--serif); font-style:italic; font-size:16.5px; color:var(--ink); margin-bottom:10px; border-left:1.5px solid var(--hair); padding-left:16px; }
+.lever p { font-size:15px; color:var(--ink-soft); }
+
+/* ---- HOW IT WORKS ---- */
+.how-grid { display:grid; grid-template-columns:1fr; gap:64px; align-items:start; margin-top:48px; max-width:920px; }
+@media(max-width:860px){ .how-grid{grid-template-columns:1fr;gap:32px;} }
+.how-points { display:flex; flex-direction:column; gap:24px; }
+.how-point { display:grid; grid-template-columns:44px 1fr; gap:16px; align-items:start; }
+.how-icon { width:44px; height:44px; border:1px solid var(--hair); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.how-point h4 { font-family:var(--serif); font-weight:500; font-size:18px; margin-bottom:4px; }
+.how-point p { font-size:14.5px; color:var(--ink-soft); }
+
+/* ---- ENGAGE PHASES ---- */
+.phases { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--hair); margin-top:48px; }
+@media(max-width:760px){ .phases{grid-template-columns:1fr;} }
+.phase { padding:36px 32px 38px; border-right:1px solid var(--hair); position:relative; }
+.phase:last-child { border-right:0; }
+.phase::before { content:""; position:absolute; top:0; left:32px; right:32px; height:2px; background:var(--hair); }
+.phase.on::before { background:var(--terra); }
+.phase-n { font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:var(--terra); }
+.phase h3 { font-family:var(--serif); font-weight:400; font-size:28px; margin:12px 0 3px; }
+.phase-dur { font-family:var(--serif); font-style:italic; font-size:15px; color:var(--ink-soft); margin-bottom:14px; }
+.phase p { font-size:15px; color:var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span class="brand-name">QUALAMANTIS</span></a>
+    <ul class="nav-links">
+      <li><a href="program.html" aria-current="page">The Program</a></li>
+      <li><a href="digital.html">Digitalisation</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="partners.html">Partners</a></li>
+    </ul>
+    <div class="nav-end">
+      <div class="lang-sw"><button class="on">EN</button><button>IT</button><button>FR</button></div>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="pg-hero">
+  <div class="wrap">
+    <div class="pg-crumb"><a href="index.html">Home</a> <span>/</span> The Program</div>
+    <div class="pg-hero-grid">
+      <div>
+        <h1 class="pg-title">Business<br><em>Transformation</em><br>Program</h1>
+      </div>
+      <div>
+        <p class="lede" style="margin-bottom:24px;">Turn quality from a hidden cost into competitive advantage. One program — three moves that compound — with your own people trained to carry it on.</p>
+        <p style="font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-soft);">Diagnose → Build → Capture value</p>
+      </div>
+    </div>
+    <!-- The loop -->
+    <div class="loop-viz sr">
+      <div class="loop-step">
+        <div class="loop-n">01</div>
+        <div class="loop-label">Gap Assessment</div>
+        <div class="loop-desc">See clearly where you stand — and what it is costing you today.</div>
+      </div>
+      <div class="loop-step">
+        <div class="loop-n">02</div>
+        <div class="loop-label">Action Plan</div>
+        <div class="loop-desc">Build the processes and the people that make change stick.</div>
+      </div>
+      <div class="loop-step">
+        <div class="loop-n">03</div>
+        <div class="loop-label">Cost Improvement</div>
+        <div class="loop-desc">Drive product cost down across all processes — with or without a quality problem.</div>
+      </div>
+    </div>
+    <div class="loop-connector sr">
+      <span>Once the plan is set, cost reduction and digitalisation run in parallel — each cycle resets the baseline higher</span>
+    </div>
+  </div>
+</section>
+
+<!-- AXIS 1 -->
+<section class="sec axis-section first-axis" id="axis1">
+  <div class="wrap">
+    <div class="axis-chapter sr">
+      <div class="chapter-n">01</div>
+      <div>
+        <div class="eyebrow">Axis One · Gap Assessment</div>
+        <h2 class="serif" style="margin-top:16px;">Start with the truth,<br><em>not assumptions</em></h2>
+        <p style="color:var(--ink-soft);margin-top:16px;max-width:60ch;">Together with your leadership we run a company-level Gap and SWOT analysis — covering business performance and product cost as two independent lenses. We surface the structural, organisational and cultural factors that quietly drive — or block — both. One honest picture before you spend a euro on change.</p>
+      </div>
+    </div>
+    <div class="axis-content-grid">
+      <div>
+        <h3 style="font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:4px;" class="sr">The method</h3>
+        <p style="color:var(--ink-soft);font-size:15px;" class="sr">A diagnostic that looks where both value and cost leak out of the business.</p>
+        <div class="method-grid sr">
+          <div class="method-cell">
+            <h4>Gap &amp; SWOT analysis</h4>
+            <p>Strategic strengths, weaknesses and blind spots — objectively mapped with your leadership.</p>
+          </div>
+          <div class="method-cell">
+            <h4>Business process assessment</h4>
+            <p>Whether your core processes deliver on performance and cost simultaneously.</p>
+          </div>
+          <div class="method-cell">
+            <h4>Hidden-factor assessment</h4>
+            <p>The culture and behaviours — the human system — that shapes real outcomes.</p>
+          </div>
+          <div class="method-cell">
+            <h4>Lean &amp; digital maturity</h4>
+            <p>Where waste, missing data and process gaps slow you down and inflate cost.</p>
+          </div>
+        </div>
+        <h3 style="font-family:var(--serif);font-weight:400;font-size:24px;margin:48px 0 4px;" class="sr">What you leave with</h3>
+        <div class="outcomes sr">
+          <div class="outcome">
+            <div class="outcome-n">1</div>
+            <h4>Maturity baseline</h4>
+            <p>Where you stand today — objectively scored, not guessed.</p>
+          </div>
+          <div class="outcome">
+            <div class="outcome-n">2</div>
+            <h4>Prioritised findings</h4>
+            <p>Risks and opportunities ranked by euro impact, not by effort.</p>
+          </div>
+          <div class="outcome">
+            <div class="outcome-n">3</div>
+            <h4>Strategic direction</h4>
+            <p>The shortest path from today to a value-driven operating system.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AXIS 2 -->
+<section class="sec bg-2 axis-section" id="axis2">
+  <div class="wrap">
+    <div class="axis-chapter sr">
+      <div class="chapter-n">02</div>
+      <div>
+        <div class="eyebrow">Axis Two · Action Plan</div>
+        <h2 class="serif" style="margin-top:16px;">Seven workstreams that turn<br><em>insight into action</em></h2>
+        <p style="color:var(--ink-soft);margin-top:16px;max-width:60ch;">Not a report to file away. We turn the diagnosis into a plan with clear owners and KPIs — built around seven workstreams that address both performance and cost as one integrated agenda.</p>
+      </div>
+    </div>
+
+    <div class="accordion sr">
+      <div class="acc-item open" data-acc>
+        <div class="acc-bar"><span class="acc-num">1</span><span class="acc-title">Critical-to-business processes</span><span class="acc-toggle">+</span></div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="ws-body" style="padding-bottom:24px;">
+            <p>The core processes that keep launches, changes and complaints from turning into crises. Defined, deployed and owned — not just documented.</p>
+            <div class="proc-grid" style="grid-column:1/-1;">
+              <div class="proc-cell"><h5>APQP</h5><p>Launches that go right the first time.</p></div>
+              <div class="proc-cell"><h5>MOC</h5><p>Changes that never introduce new risk.</p></div>
+              <div class="proc-cell"><h5>PPAP / ISIR / FAI</h5><p>Production signed off before it starts.</p></div>
+              <div class="proc-cell"><h5>CCM</h5><p>Complaints resolved fast — and prevented next time.</p></div>
+              <div class="proc-cell"><h5>ERM</h5><p>Risk priced in before you commit to a contract.</p></div>
+              <div class="proc-cell"><h5>Supplier Approval</h5><p>Partners who meet your standards, not just your price.</p></div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item open" data-acc>
+        <div class="acc-bar"><span class="acc-num">2</span><span class="acc-title">Short-term risk management</span><span class="acc-toggle">+</span></div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="ws-body">
+            <p>Contain today's risks before they reach the customer. Rapid response protocols, risk prioritisation and cross-functional ownership — so crises are contained fast and root causes addressed, not just symptoms.</p>
+            <ul class="dlist">
+              <li><span><b>Immediate containment</b><small>Stop the leak before it becomes a recall.</small></span></li>
+              <li><span><b>Risk prioritisation</b><small>Ranked by probability and customer impact — focus where it counts.</small></span></li>
+              <li><span><b>Structured escalation</b><small>Clear ownership and decision rights, no firefighting blur.</small></span></li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item open" data-acc>
+        <div class="acc-bar"><span class="acc-num">3</span><span class="acc-title">Quality management system</span><span class="acc-toggle">+</span></div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="ws-body">
+            <p>A QMS that supports the business — not just satisfies the auditor. We build or strengthen the system and accompany the certification journey across the main frameworks.</p>
+            <ul class="dlist">
+              <li><span><b>ISO 9001 · IATF 16949 · AS9100 · IRIS · VDA6</b><small>Full certification support and gap-to-compliance roadmapping.</small></span></li>
+              <li><span><b>ISO 14001 · 45001 · 50001</b><small>EHS and sustainability management systems.</small></span></li>
+              <li><span><b>Audit portfolio</b><small>Internal, supplier and process audits — designed around your risk landscape.</small></span></li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item open" data-acc>
+        <div class="acc-bar"><span class="acc-num">4</span><span class="acc-title">Competence development</span><span class="acc-toggle">+</span></div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="ws-body" style="grid-template-columns:1fr;">
+            <p>Processes only last if your people own them. We close capability gaps with hands-on, coaching-led development across two domains — and tailor executive coaching for senior leadership roles.</p>
+            <div class="comp-grid">
+              <div class="comp-col">
+                <h5><span class="comp-badge">Q</span> Quality</h5>
+                <ul class="dlist">
+                  <li>Critical-to-quality processes (APQP, MOC, CCM)</li>
+                  <li>Quality management systems &amp; ISO standards</li>
+                  <li>Auditing: internal, supplier, process</li>
+                  <li>Risk management &amp; FMEA facilitation</li>
+                  <li>Problem solving, MSA &amp; SPC</li>
+                </ul>
+              </div>
+              <div class="comp-col">
+                <h5><span class="comp-badge">6σ</span> Six Sigma</h5>
+                <ul class="dlist">
+                  <li>DMAIC — Green Belt &amp; Black Belt</li>
+                  <li>Design for Six Sigma (DfSS)</li>
+                  <li>Reliability engineering &amp; testing</li>
+                  <li>Robust design &amp; Design of Experiments</li>
+                  <li>Statistical modelling &amp; tolerancing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item open" data-acc>
+        <div class="acc-bar"><span class="acc-num">5</span><span class="acc-title">Problem solving &amp; continuous improvement</span><span class="acc-toggle">+</span></div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="ws-body">
+            <p>Structured methodologies deployed across the organisation to stop recurring problems and embed a culture of continuous improvement — not occasional firefighting.</p>
+            <ul class="dlist">
+              <li><span><b>Zero Defect programs</b><small>Culture and tools to prevent defects at source.</small></span></li>
+              <li><span><b>DMAIC methodology</b><small>Data-driven problem solving embedded in operations.</small></span></li>
+              <li><span><b>Six Sigma deployment</b><small>Building internal capability — Green and Black Belts in your team.</small></span></li>
+              <li><span><b>Lean practices</b><small>Waste elimination and flow improvement across the value chain.</small></span></li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item open" data-acc>
+        <div class="acc-bar"><span class="acc-num">6</span><span class="acc-title">Digitalisation</span><span class="acc-toggle">+</span></div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="ws-body">
+            <p>Once the plan is set, we digitalize your core business processes — turning manual quality work and scattered data into connected, real-time workflows. <a href="digital.html" style="color:var(--terra);text-decoration:none;font-weight:600;">See the full digital stack →</a></p>
+            <ul class="dlist">
+              <li><span><b>Connected processes</b><small>One flow from enquiry to delivery — not disconnected tools.</small></span></li>
+              <li><span><b>Real-time quality data</b><small>Single-source metrics for faster, better decisions.</small></span></li>
+              <li><span><b>AI integration</b><small>Automate checks, reporting, and anomaly detection.</small></span></li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item open" data-acc>
+        <div class="acc-bar"><span class="acc-num">7</span><span class="acc-title">Operational support</span><span class="acc-toggle">+</span></div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="ws-body">
+            <p>Hands-on help to keep momentum during implementation. We co-resource alongside your team — present in the operations, not just in the boardroom — to embed the change and transfer capability permanently.</p>
+            <ul class="dlist">
+              <li><span><b>On-site presence</b><small>Senior practitioners embedded with your team, not just visiting.</small></span></li>
+              <li><span><b>Momentum management</b><small>Structured check-ins, gate reviews, and course corrections.</small></span></li>
+              <li><span><b>Capability transfer</b><small>The objective is your independence — not our dependency.</small></span></li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AXIS 3 -->
+<section class="sec axis-section" id="axis3">
+  <div class="wrap">
+    <div class="axis-chapter sr">
+      <div class="chapter-n">03</div>
+      <div>
+        <div class="eyebrow">Axis Three · Cost Improvement Program</div>
+        <h2 class="serif" style="margin-top:16px;">A stand-alone engine<br>for <em>product cost</em></h2>
+        <p style="color:var(--ink-soft);margin-top:16px;max-width:60ch;">The Cost Improvement Program is activatable even without a performance problem. It covers product cost across all business processes — with CoNQ as one of its diagnostic instruments, converting quality losses into improvement targets.</p>
+      </div>
+    </div>
+
+    <!-- CIP vs CoNQ -->
+    <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:1px;background:var(--hair);border:1px solid var(--hair);margin-bottom:52px;" class="sr">
+      <div style="background:var(--paper);padding:36px 34px;">
+        <div class="eyebrow bare" style="margin-bottom:14px;">CIP — The Engine</div>
+        <p style="font-size:16px;color:var(--ink-soft);">A structured program covering product cost across all processes. Run by a co-located, cross-functional team with a mandate to act — fuelled by competitor benchmarking and supplier workshops.</p>
+      </div>
+      <div style="background:var(--paper-2);padding:36px 34px;">
+        <div class="eyebrow bare" style="margin-bottom:14px;">CoNQ — One of its tools</div>
+        <p style="font-size:16px;color:var(--ink-soft);">The Cost of Non-Quality measures the financial weight of quality failures — complaints, scrap and rework — and converts them into prioritised improvement targets inside the CIP.</p>
+      </div>
+    </div>
+
+    <!-- 3 levers -->
+    <h3 style="font-family:var(--serif);font-weight:400;font-size:26px;margin-bottom:28px;" class="sr">Three levers — and the question each answers</h3>
+    <div class="levers-grid sr">
+      <div class="lever">
+        <div class="lever-n">No. 1</div>
+        <h3>Product specifications</h3>
+        <p class="lever-q">"Do my products have the right features?"</p>
+        <p>Prioritise what customers truly value — and stop paying for what they don't. Using the House of Quality and customer value mapping to align specifications with willingness to pay.</p>
+      </div>
+      <div class="lever">
+        <div class="lever-n">No. 2</div>
+        <h3>Sourcing &amp; price</h3>
+        <p class="lever-q">"Am I buying at the right price?"</p>
+        <p>Clean-sheet target costing, part by part. Fuelled by supplier workshops, benchmarking and should-cost analysis — identifying the delta between current price and achievable price.</p>
+      </div>
+      <div class="lever">
+        <div class="lever-n">No. 3</div>
+        <h3>Technical solutions</h3>
+        <p class="lever-q">"Is there a lower-cost design?"</p>
+        <p>Teardown-driven redesign of product and process, informed by competitor benchmarking and Robust Design. Design for Six Sigma to build quality in — so you don't inspect it in at cost.</p>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <h3 style="font-family:var(--serif);font-weight:400;font-size:26px;margin-top:60px;" class="sr">How it works in practice</h3>
+    <div class="how-grid">
+      <div class="how-points sr">
+        <div class="how-point">
+          <div class="how-icon">⟳</div>
+          <div>
+            <h4>A co-located, cross-functional team</h4>
+            <p>Engineering, purchasing, manufacturing, sales and quality — working to shared stretch targets under one roof. Not a task-force that meets once a month.</p>
+          </div>
+        </div>
+        <div class="how-point">
+          <div class="how-icon">★</div>
+          <div>
+            <h4>Clear top-management commitment</h4>
+            <p>Quick decisions, resources allocated, barriers removed. The program needs a sponsor with authority — we help you structure that commitment from day one.</p>
+          </div>
+        </div>
+        <div class="how-point">
+          <div class="how-icon">◆</div>
+          <div>
+            <h4>Dedicated resources &amp; gate reviews</h4>
+            <p>Around two FTE, a shared budget and structured gate reviews. Savings are not claimed until implemented — the gate process keeps the program honest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CIP prize -->
+    <div style="border:1px solid var(--hair);padding:40px 44px;margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;" class="sr">
+      <div>
+        <div class="eyebrow bare">The typical prize</div>
+        <div style="font-family:var(--serif);font-weight:200;font-size:72px;line-height:1;margin:14px 0 8px;">3–10<sup style="font-size:.4em;color:var(--terra);top:-.7em;position:relative;">%</sup></div>
+        <p style="color:var(--ink-soft);">of product cost — identified in detail and taken through to implementation within 12 months, with your own CIP experts trained in each product line.</p>
+      </div>
+      <div>
+        <p style="font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.5;color:var(--ink);">"Not a cost-reduction exercise run in isolation — a structural change to how you think about and engineer cost into every product decision."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE ENGAGE -->
+<section class="sec bg-2">
+  <div class="wrap">
+    <div class="sec-head sr">
+      <div>
+        <div class="eyebrow">How We Engage</div>
+        <h2 class="serif" style="margin-top:20px;">A clear path, from first look<br>to <em>lasting change</em></h2>
+      </div>
+      <p class="lede" style="align-self:end;">Scaled to your size and ambition — we co-resource alongside your team. We do not replace it. Each phase has defined deliverables and exit criteria.</p>
+    </div>
+    <div class="phases sr">
+      <div class="phase on">
+        <div class="phase-n">Phase 1</div>
+        <h3>Diagnose</h3>
+        <div class="phase-dur">Typically 4–6 weeks</div>
+        <p>A gap assessment and a quantified baseline of where you stand — business performance and product cost, independently assessed.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-n">Phase 2</div>
+        <h3>Design</h3>
+        <div class="phase-dur">Typically 4–8 weeks</div>
+        <p>A prioritised action plan with clear owners, leading KPIs and a resource plan. Board-ready from day one.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-n">Phase 3</div>
+        <h3>Deliver</h3>
+        <div class="phase-dur">Typically 6–12 months</div>
+        <p>Implementation alongside your teams — capability transferred, not rented. The objective is your independence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec bg-ink cta-band">
+  <img class="cta-q-bg" src="assets/logo-q-cream.png" alt="">
+  <div class="wrap" style="position:relative;">
+    <div class="eyebrow sr">Where to start</div>
+    <h2 class="serif sr" style="max-width:22ch;margin:22px auto 16px;">See both prizes<br>before you commit</h2>
+    <p class="lede sr" style="margin:0 auto;max-width:50ch;">A short Business Performance scan: 2–3 weeks. Quality losses and product-cost opportunities, both quantified in euros, and a board-ready recommendation on where to act first.</p>
+    <div class="btn-group sr" style="justify-content:center;margin-top:36px;">
+      <a class="btn-fill light" href="contact.html">Request the scan</a>
+      <a class="btn-line light" href="about.html">Meet the team</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="footer-logo" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span>QUALAMANTIS</span></a>
+      <p>Business transformation, cost improvement and digitalisation for industrial companies.</p>
+    </div>
+    <nav class="footer-col foot-nav" aria-label="Site">
+      <h4>Site</h4>
+      <a href="index.html">Home</a>
+      <a href="program.html">Program</a>
+      <a href="digital.html">Digitalisation</a>
+      <a href="about.html">About</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
+      <span>Fondettes, France</span>
+    </div>
+    <div class="footer-col">
+      <h4>GDPR / RGPD</h4>
+      <p>Contact messages are used only to reply to your enquiry. You can request access, correction or deletion at any time.</p>
+      <a href="contact.html">Privacy request</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Qualamantis · Fondettes, France</span>
+    <span class="motto">Per aspera ad astra</span>
+  </div>
+</footer>
+
+<script>
+  const srObs = new IntersectionObserver(es => es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');srObs.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.sr').forEach(el=>srObs.observe(el));
+  document.querySelectorAll('[data-acc]').forEach(item=>{
+    item.querySelector('.acc-bar').addEventListener('click',()=>{
+      item.classList.toggle('open');
+    });
+  });
+</script>
+<script src="assets/lang.js"></script>
+</body>
+</html>

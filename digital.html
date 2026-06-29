@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digitalisation — Qualamantis</title>
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+/* ---- BENEFITS ---- */
+.benefits { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); margin-top:52px; }
+@media(max-width:760px){ .benefits{grid-template-columns:1fr;} }
+.benefit { background:var(--paper); padding:44px 36px; transition:background .3s; }
+.benefit:hover { background:var(--paper-2); }
+.benefit-icon { font-size:28px; margin-bottom:18px; line-height:1; }
+.benefit h3 { font-family:var(--serif); font-weight:400; font-size:24px; margin-bottom:12px; }
+.benefit p { color:var(--ink-soft); font-size:15.5px; max-width:34ch; }
+
+/* ---- STACK ---- */
+.stack-wrapper { margin:52px auto 0; display:flex; flex-direction:column; gap:8px; max-width:960px; width:100%; }
+.stack-layer { display:flex; flex-direction:column; gap:8px; }
+.stack-label { font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:var(--ink-soft); margin-bottom:4px; }
+.stack-row { display:flex; gap:8px; }
+.s-chip {
+  flex:1; border:1px solid var(--hair); border-radius:8px;
+  padding:18px 16px; font-size:14px; font-weight:600; letter-spacing:.03em;
+  background:var(--paper); cursor:default;
+  transition:background .25s, border-color .25s, color .25s, transform .2s;
+  position:relative;
+}
+.s-chip:hover { border-color:var(--terra); color:var(--terra); transform:translateY(-3px); }
+.s-chip b { display:block; margin-bottom:4px; }
+.s-chip small { font-size:12px; font-weight:400; color:var(--ink-soft); }
+.s-chip.ai-layer {
+  background:var(--terra); color:var(--paper); border-color:var(--terra);
+  text-align:center; padding:16px;
+  box-shadow:0 12px 28px rgba(188,72,39,.22);
+}
+.s-chip.ai-layer:hover { background:var(--terra-d); transform:translateY(-3px); }
+.s-chip.ai-layer small { color:rgba(250,246,239,.75); }
+.s-chip.mes { border-radius:8px; }
+.s-chip.foundation { background:var(--ink); color:var(--paper); border-color:var(--ink); border-radius:8px; }
+.s-chip.foundation:hover { background:#2e2820; border-color:#2e2820; color:var(--paper); transform:translateY(-3px); }
+.s-chip.foundation small { color:rgba(250,246,239,.6); }
+.stack-caption { font-family:var(--serif); font-style:italic; font-size:16px; color:var(--ink-soft); margin-top:20px; text-align:center; }
+
+/* ---- APPROACH ---- */
+.approach-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:80px; align-items:start; }
+@media(max-width:860px){ .approach-grid{grid-template-columns:1fr;gap:36px;} }
+.approach-steps { display:flex; flex-direction:column; gap:0; margin-top:32px; }
+.ap-step { display:grid; grid-template-columns:48px 1fr; gap:20px; align-items:start; padding:24px 0; border-bottom:1px solid var(--hair); }
+.ap-step:last-child { border-bottom:0; }
+.ap-n { font-family:var(--serif); font-style:italic; font-size:32px; font-weight:200; color:var(--terra); line-height:1.1; }
+.ap-step h4 { font-family:var(--serif); font-weight:500; font-size:20px; margin-bottom:6px; }
+.ap-step p { font-size:15px; color:var(--ink-soft); max-width:46ch; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span class="brand-name">QUALAMANTIS</span></a>
+    <ul class="nav-links">
+      <li><a href="program.html">The Program</a></li>
+      <li><a href="digital.html" aria-current="page">Digitalisation</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="partners.html">Partners</a></li>
+    </ul>
+    <div class="nav-end">
+      <div class="lang-sw"><button class="on">EN</button><button>IT</button><button>FR</button></div>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="pg-hero">
+  <div class="wrap">
+    <div class="pg-crumb"><a href="index.html">Home</a> <span>/</span> Digitalisation</div>
+    <div class="pg-hero-grid">
+      <div>
+        <h1 class="pg-title">A connected,<br><em>AI-accelerated</em><br>landscape</h1>
+      </div>
+      <div>
+        <p class="lede">Once the action plan is set, we digitalize your core business processes — turning manual work and scattered data into connected, real-time workflows you can trust. One flow, from enquiry to delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY DIGITALIZE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head sr">
+      <div>
+        <div class="eyebrow">Why it matters</div>
+        <h2 class="serif" style="margin-top:20px;">Three reasons your data<br>should work harder</h2>
+      </div>
+      <p class="lede" style="align-self:end;">Manual quality work and disconnected systems create invisible cost — in hours, in errors, in decisions made on stale data. Digitalisation eliminates the structural drag.</p>
+    </div>
+    <div class="benefits sr">
+      <div class="benefit">
+        <div class="benefit-icon">⇄</div>
+        <h3>Connected processes</h3>
+        <p>One flow from enquiry to delivery — not disconnected tools and spreadsheets. Every function sees the same picture, in real time.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">◈</div>
+        <h3>Data you can trust</h3>
+        <p>Real-time, single-source quality metrics for faster, better decisions. No more reconciling three versions of the same report.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">↑</div>
+        <h3>Less manual effort</h3>
+        <p>Automate checks, reporting and anomaly detection — freeing your people for higher-value work, not data entry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE STACK -->
+<section class="sec bg-2">
+  <div class="wrap">
+    <div class="sec-head sr">
+      <div>
+        <div class="eyebrow">The Digital Stack</div>
+        <h2 class="serif" style="margin-top:20px;">Platform by platform,<br>layer by <em>layer</em></h2>
+      </div>
+      <p class="lede" style="align-self:end;">We build or strengthen each layer of your digital architecture — from data foundation to AI — ensuring they talk to each other and to the business.</p>
+    </div>
+    <div class="stack-wrapper sr">
+      <div class="stack-layer">
+        <div class="stack-label">Intelligence layer</div>
+        <div class="s-chip ai-layer">
+          <b>AI — Value Accelerator</b>
+          <small>Predictive quality, anomaly detection, automated reporting, smart decision support</small>
+        </div>
+      </div>
+      <div class="stack-layer">
+        <div class="stack-label">Enterprise applications</div>
+        <div class="stack-row">
+          <div class="s-chip"><b>ERP</b><small>Finance · supply chain · procurement · HR</small></div>
+          <div class="s-chip"><b>Process Management</b><small>End-to-end enterprise workflows &amp; documentation</small></div>
+          <div class="s-chip"><b>EHS &amp; Sustainability</b><small>Global compliance · incident management · ESG reporting</small></div>
+        </div>
+        <div class="stack-row">
+          <div class="s-chip"><b>Supplier Management</b><small>Lifecycle management · qualification · performance tracking</small></div>
+          <div class="s-chip"><b>Extensions</b><small>PLM · CRM · maintenance (CMMS) · quality management</small></div>
+        </div>
+      </div>
+      <div class="stack-layer">
+        <div class="stack-label">Execution layer</div>
+        <div class="s-chip mes"><b>MES — Manufacturing Execution System</b><small>Real-time execution, monitoring and control of production operations · OEE · traceability</small></div>
+      </div>
+      <div class="stack-layer">
+        <div class="stack-label">Foundation</div>
+        <div class="s-chip foundation"><b>Data Foundation</b><small>Unified, reliable and secure data — IT/OT integration · governance · cybersecurity · master data</small></div>
+      </div>
+      <p class="stack-caption">One architecture, one flow — not a patchwork of siloed tools.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="sec">
+  <div class="wrap">
+    <div class="approach-grid">
+      <div>
+        <div class="eyebrow sr">Our approach</div>
+        <h2 class="serif sr" style="margin-top:20px;">We digitalize the process — <em>not just install the software</em></h2>
+        <p style="color:var(--ink-soft);margin-top:18px;max-width:52ch;" class="sr">A digital transformation that doesn't start with the business process is a failed implementation waiting to happen. We map, simplify and standardize before we digitalize — so the tool is an accelerator, not a constraint.</p>
+        <div class="approach-steps sr">
+          <div class="ap-step">
+            <div class="ap-n">1</div>
+            <div>
+              <h4>Process first</h4>
+              <p>Map and simplify the business process before selecting or configuring any tool. The software must fit the process — not force the process to fit the software.</p>
+            </div>
+          </div>
+          <div class="ap-step">
+            <div class="ap-n">2</div>
+            <div>
+              <h4>Data architecture</h4>
+              <p>Define the data foundation — what needs to flow where, in what format, with what governance. Clean data in, trusted data out.</p>
+            </div>
+          </div>
+          <div class="ap-step">
+            <div class="ap-n">3</div>
+            <div>
+              <h4>Deploy &amp; train</h4>
+              <p>Hands-on implementation alongside your team — with user adoption as the success metric, not go-live date.</p>
+            </div>
+          </div>
+          <div class="ap-step">
+            <div class="ap-n">4</div>
+            <div>
+              <h4>Connect &amp; scale</h4>
+              <p>Integrate across the stack and build toward an AI-ready architecture that keeps improving without constant intervention.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sr d1" style="padding-top:56px;">
+        <div style="border:1px solid var(--hair);padding:36px 32px;">
+          <div class="eyebrow bare" style="margin-bottom:20px;">What we cover</div>
+          <ul class="dlist">
+            <li>Quality &amp; EHS digitalisation roadmap</li>
+            <li>ERP process integration &amp; configuration</li>
+            <li>Supplier management platform deployment</li>
+            <li>MES selection, integration &amp; rollout</li>
+            <li>Data governance &amp; master data management</li>
+            <li>IT/OT integration for shop-floor connectivity</li>
+            <li>AI use-case identification &amp; deployment</li>
+            <li>User training &amp; change management</li>
+          </ul>
+        </div>
+        <div style="margin-top:28px;border:1px solid var(--hair);padding:32px;">
+          <p style="font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.5;color:var(--ink);">"Quality data you can trust — real-time, single-source, ready for AI — is the competitive advantage most companies overlook."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec bg-ink cta-band">
+  <img class="cta-q-bg" src="assets/logo-q-cream.png" alt="">
+  <div class="wrap" style="position:relative;">
+    <div class="eyebrow sr">Next step</div>
+    <h2 class="serif sr" style="max-width:22ch;margin:22px auto 16px;">Start with a digitalisation<br>readiness assessment</h2>
+    <p class="lede sr" style="margin:0 auto;max-width:50ch;">We map your current digital landscape, identify gaps and priorities, and recommend a sequenced roadmap — so you invest in the right layer first.</p>
+    <div class="btn-group sr" style="justify-content:center;margin-top:36px;">
+      <a class="btn-fill light" href="contact.html">Talk to us</a>
+      <a class="btn-line light" href="program.html">See the full program</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="footer-logo" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span>QUALAMANTIS</span></a>
+      <p>Business transformation, cost improvement and digitalisation for industrial companies.</p>
+    </div>
+    <nav class="footer-col foot-nav" aria-label="Site">
+      <h4>Site</h4>
+      <a href="index.html">Home</a>
+      <a href="program.html">Program</a>
+      <a href="digital.html">Digitalisation</a>
+      <a href="about.html">About</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
+      <span>Fondettes, France</span>
+    </div>
+    <div class="footer-col">
+      <h4>GDPR / RGPD</h4>
+      <p>Contact messages are used only to reply to your enquiry. You can request access, correction or deletion at any time.</p>
+      <a href="contact.html">Privacy request</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Qualamantis · Fondettes, France</span>
+    <span class="motto">Per aspera ad astra</span>
+  </div>
+</footer>
+
+<script>
+  const srObs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');srObs.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.sr').forEach(el=>srObs.observe(el));
+</script>
+<script src="assets/lang.js"></script>
+</body>
+</html>
