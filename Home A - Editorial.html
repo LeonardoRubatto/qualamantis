@@ -357,9 +357,11 @@
   .foot-nav a,.footer-col a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;transition:color .2s;}
   .foot-nav a:hover,.footer-col a:hover{color:var(--terra);}
   .footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:42px;padding-top:20px;border-top:1px solid var(--hair);color:var(--ink-soft);font-size:12.5px;}
-  .footer-bottom .motto{font-family:var(--serif);font-style:italic;color:var(--terra);font-size:14px;}
+  .footer-bottom > span:first-child,.footer-credit{flex:1;}
+  .footer-credit{text-align:center;}
+  .footer-bottom .motto{font-family:var(--serif);font-style:italic;color:var(--terra);font-size:14px;flex:1;text-align:right;}
   @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:34px;}}
-  @media(max-width:620px){.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:8px;}}
+  @media(max-width:620px){.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:8px;align-items:center;}.footer-bottom > span:first-child,.footer-credit,.footer-bottom .motto{flex:none;text-align:center;}}
 
   @media(max-height:760px) and (min-width:861px){
     section{padding:58px 0;}
@@ -686,6 +688,7 @@
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 Qualamantis · Fondettes, France</span>
+    <span class="footer-credit">site by Leonardo Rubatto</span>
     <span class="motto">Per aspera ad astra</span>
   </div>
 </footer>

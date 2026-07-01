@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industries — Qualamantis</title>
+<meta name="description" content="Qualamantis serves industrial companies across automotive, aerospace, rail, renewable energy and heavy industries — with a deep specialisation in rolling bearings.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/logo-q.png">
+<link rel="apple-touch-icon" href="assets/logo-q.png">
+<meta name="theme-color" content="#FAF6EF">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+.geo-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
+.geo-tag { font-size:13.5px; font-weight:600; color:var(--ink); border:1px solid var(--hair); padding:9px 18px; letter-spacing:.04em; }
+.bearing-hero { background:var(--ink); color:var(--paper); position:relative; overflow:hidden; }
+.bearing-hero .cta-q-bg { position:absolute; left:auto; right:-6%; top:50%; transform:translateY(-50%); width:420px; opacity:.07; }
+.bearing-hero h1 { font-family:var(--serif); font-weight:300; font-size:clamp(38px,4.4vw,58px); line-height:1.08; letter-spacing:-.01em; max-width:16ch; margin-top:18px; }
+.bearing-hero h1 em { font-style:italic; color:var(--terra); }
+.bearing-hero p.lede { color:rgba(250,246,239,.68); margin-top:18px; max-width:60ch; }
+.bearing-hero .eyebrow { color:rgba(250,246,239,.7); }
+.bearing-hero .eyebrow::before { background:var(--terra); }
+.bearing-hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center; position:relative; z-index:1; }
+@media(max-width:860px){ .bearing-hero-grid{grid-template-columns:1fr;gap:32px;} }
+.bearing-art { width:100%; height:auto; max-width:600px; justify-self:center; }
+.bearings-diff-grid { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center; margin-bottom:48px; }
+@media(max-width:860px){ .bearings-diff-grid{grid-template-columns:1fr;gap:28px;} }
+.bearings-diff-grid img { width:100%; height:auto; max-width:540px; justify-self:center; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span class="brand-name">QUALAMANTIS</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html" aria-current="page">Industries</a></li>
+      <li><a href="program.html">The Program</a></li>
+      <li><a href="digital.html">Digitalisation</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-end">
+      <div class="lang-sw"><button class="on" data-lang="en">EN</button><button data-lang="it">IT</button><button data-lang="fr">FR</button></div>
+      <a class="nav-cta" href="contact.html">Contact</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav"><div class="mobile-nav-inner"><div class="wrap">
+    <ul>
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html" aria-current="page">Industries</a></li>
+      <li><a href="program.html">The Program</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="digital.html">Digitalisation</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div></div></div>
+</header>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="pg-hero">
+  <div class="wrap">
+    <div class="pg-crumb"><a href="index.html">Home</a> <span>/</span> Industries</div>
+    <div class="pg-hero-grid">
+      <div>
+        <h1 class="pg-title">We serve industry —<br>with a specialism in <em>bearings</em></h1>
+      </div>
+      <div>
+        <p class="lede">Our experience spans a wide range of manufacturing sectors, with particular emphasis on environments where quality, reliability and product complexity are strategic priorities — and where the cost of failure, in warranty, in safety, in reputation, is significant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head sr">
+      <div>
+        <div class="eyebrow">Sectors</div>
+        <h2 class="serif" style="margin-top:20px;">At home in regulated, high-stakes environments</h2>
+      </div>
+      <p class="lede" style="align-self:end;">Qualamantis works primarily with industrial companies. We are at home in regulated environments where the cost of failure is significant, and where quality is treated as a strategic priority, not a formality.</p>
+    </div>
+    <div class="tile-grid cols-3 sr">
+      <div class="tile">
+        <h4>Automotive &amp; General Industry</h4>
+        <p>Tier 1 and Tier 2 suppliers, OEM support, IATF and VDA environments, supplier approval and development.</p>
+      </div>
+      <div class="tile">
+        <h4>Aerospace</h4>
+        <p>AS9100, FAI/ISIR processes, safety-critical product development.</p>
+      </div>
+      <div class="tile">
+        <h4>Rail</h4>
+        <p>IRIS certification, reliability engineering, lifecycle quality.</p>
+      </div>
+      <div class="tile">
+        <h4>Renewable Energy</h4>
+        <p>Wind, solar and offshore — quality in extreme-environment applications.</p>
+      </div>
+      <div class="tile">
+        <h4>Machine Tool, Off-Highway &amp; Heavy Industries</h4>
+        <p>Construction equipment, agriculture, mining machinery.</p>
+      </div>
+      <div class="tile">
+        <h4>Marine &amp; Maritime</h4>
+        <p>Shipbuilding, offshore and port equipment.</p>
+      </div>
+    </div>
+    <div class="sr" style="margin-top:48px;">
+      <div class="eyebrow bare" style="margin-bottom:16px;">Geographic reach</div>
+      <div class="geo-row">
+        <div class="geo-tag">Europe</div>
+        <div class="geo-tag">Americas</div>
+        <div class="geo-tag">Middle East &amp; North Africa</div>
+        <div class="geo-tag">Türkiye</div>
+        <div class="geo-tag">Asia-Pacific</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEARING SECTOR SPOTLIGHT -->
+<section class="sec bearing-hero" id="bearings">
+  <div class="wrap bearing-hero-grid">
+    <div class="sr">
+      <div class="eyebrow">Sector Spotlight</div>
+      <h1>Rolling Bearings — <em>a deep industrial specialisation</em></h1>
+      <p class="lede">Within the broader industrial landscape, Qualamantis has developed a recognised depth of expertise in the rolling bearing industry. This is not a niche we entered by accident — it reflects years of senior engagement with major bearing manufacturers and their supply chains, covering the full scope of quality management, reliability engineering, warranty analysis, manufacturing process development and product design.</p>
+    </div>
+    <img class="bearing-art sr" src="assets/bearingcloseup.png" alt="Illustrated cross-section of a rolling bearing, showing raceways and ball elements">
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="bearings-diff-grid sr">
+      <div>
+        <div class="eyebrow">Why bearings are different</div>
+        <h2 class="serif" style="margin-top:20px;">One component,<br><em>a system-wide consequence</em></h2>
+        <p class="lede" style="margin-top:18px;">Rolling bearings sit at the intersection of materials science, precision manufacturing, tribology and application engineering — critical components in virtually every rotating machine, from automotive drivetrains to wind turbine gearboxes to high-speed rail axles.</p>
+      </div>
+      <img src="assets/bearingsdifferentheat.png" alt="Illustration of a bearing race during grinding, with sparks flying from the heat-treated surface">
+    </div>
+    <blockquote class="pull-quote sr">A bearing that fails rarely fails alone: it brings down the system around it, with consequences in warranty, safety and reputation that propagate far beyond the component itself.</blockquote>
+    <p style="color:var(--ink-soft);font-size:16px;margin-top:28px;max-width:76ch;" class="sr">Getting bearings right demands both technical precision and systemic quality discipline — from raw material selection and heat treatment control through to application design, installation and in-service monitoring. This is where our experience is concentrated.</p>
+  </div>
+</section>
+
+<section class="sec bg-2">
+  <div class="wrap">
+    <div class="sec-head sr">
+      <div>
+        <div class="eyebrow">What we bring</div>
+        <h2 class="serif" style="margin-top:20px;">To bearing manufacturers<br>and their customers</h2>
+      </div>
+    </div>
+    <div class="tile-grid cols-3 sr">
+      <div class="tile">
+        <h4>Quality Management Systems</h4>
+        <p>Design and deployment of QMS aligned to IATF 16949, ISO 9001, and sector-specific customer requirements.</p>
+      </div>
+      <div class="tile">
+        <h4>Manufacturing Process Development</h4>
+        <p>Particular depth in Heat Treatment and Grinding — the two processes most critical to bearing fatigue life and dimensional accuracy.</p>
+      </div>
+      <div class="tile">
+        <h4>Reliability Engineering</h4>
+        <p>Weibull analysis, accelerated life testing, warranty prediction and failure mode characterisation.</p>
+      </div>
+      <div class="tile">
+        <h4>Warranty &amp; Field Problem Resolution</h4>
+        <p>Statistical modelling to narrow problem populations and support targeted, defensible corrective actions.</p>
+      </div>
+      <div class="tile">
+        <h4>Supplier Qualification &amp; Development</h4>
+        <p>For materials, subcomponents and process inputs specific to bearing manufacture.</p>
+      </div>
+      <div class="tile">
+        <h4>Design Review &amp; Application Engineering</h4>
+        <p>Ensuring bearing selection and integration are optimised for the operating environment.</p>
+      </div>
+    </div>
+    <p style="color:var(--ink-soft);font-size:15.5px;margin-top:32px;max-width:78ch;" class="sr">Our bearing expertise extends from the component level — failure modes, fatigue life, contamination analysis, warranty prediction — to the system level: application and design review, supplier qualification, and manufacturing process development. This depth means bearing manufacturers, their customers, and their supply chain partners can engage Qualamantis with confidence: we understand the technical language, the failure mechanisms, the certification standards, and the commercial pressures specific to this sector.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec bg-ink cta-band">
+  <img class="cta-q-bg" src="assets/logo-q-cream.png" alt="">
+  <div class="wrap" style="position:relative;">
+    <div class="eyebrow sr">Talk to us</div>
+    <h2 class="serif sr">Have a bearing programme<br>on your hands?</h2>
+    <p class="lede sr">From heat treatment and grinding to warranty crisis response — tell us about your situation and we will tell you honestly how we can help.</p>
+    <div class="btn-group sr" style="justify-content:center;margin-top:36px;">
+      <a class="btn-fill light" href="contact.html">Contact us</a>
+      <a class="btn-line light" href="services.html">See what we do</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="footer-logo" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span>QUALAMANTIS</span></a>
+      <p>Business transformation, cost improvement and digitalisation for industrial companies — with a deep specialism in rolling bearings.</p>
+      <div class="footer-social">
+        <!-- TODO: replace with the real Qualamantis LinkedIn company URL -->
+        <a class="social-icon" href="https://www.linkedin.com/company/qualamantis" target="_blank" rel="noopener" aria-label="Qualamantis on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      </div>
+    </div>
+    <nav class="footer-col foot-nav" aria-label="Company">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="industries.html">Industries</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="footer-col foot-nav" aria-label="Services">
+      <h4>Services</h4>
+      <a href="services.html">What We Do</a>
+      <a href="program.html">The Program</a>
+      <a href="digital.html">Digitalisation</a>
+    </nav>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
+      <span>Fondettes, France</span>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Qualamantis · Fondettes, France</span>
+    <span class="footer-credit">site by Leonardo Rubatto</span>
+    <div class="footer-legal-row">
+      <a href="legal.html" style="color:var(--ink-soft);text-decoration:none;">Legal &amp; Privacy</a>
+      <span class="motto">Per aspera ad astra</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script src="assets/lang.js"></script>
+</body>
+</html>

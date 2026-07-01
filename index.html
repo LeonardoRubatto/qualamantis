@@ -3,396 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Qualamantis — Business Transformation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=Hanken+Grotesk:ital,wght@0,300..700;1,400&display=swap" rel="stylesheet">
+<title>Qualamantis — Business Transformation for Quality, EHS, Engineering &amp; Cost</title>
+<meta name="description" content="Qualamantis is a global team of senior practitioners who help industrial companies transform Quality &amp; EHS, Engineering, Manufacturing and Cost — with a deep specialism in rolling bearings.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/logo-q.png">
+<link rel="apple-touch-icon" href="assets/logo-q.png">
+<meta name="theme-color" content="#FAF6EF">
+<link rel="stylesheet" href="assets/shared.css">
 <style>
-  :root{
-    --paper:#FAF6EF;
-    --paper-2:#F3EDE2;
-    --ink:#221E18;
-    --ink-soft:#564F44;
-    --terra:#BC4827;
-    --terra-deep:#9A3A1F;
-    --olive:#4E6B3C;
-    --hair:rgba(34,30,24,.14);
-    --serif:"Newsreader", Georgia, serif;
-    --sans:"Hanken Grotesk", "Helvetica Neue", sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-size:17px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  ::selection{background:var(--terra);color:var(--paper);}
+/* ---- HERO ---- */
+.hero { min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; padding:104px 0 84px; }
+.hero > .wrap { width:100%; transform:translateY(4px); }
+.hero-q { position:absolute; right:-8%; top:50%; transform:translateY(-50%); width:min(58vw,760px); opacity:.07; pointer-events:none; animation:qfloat 14s ease-in-out infinite alternate; }
+@keyframes qfloat { from{transform:translateY(-52%) rotate(-2deg);} to{transform:translateY(-48%) rotate(2deg);} }
+.hero h1 { font-family:var(--serif); font-weight:300; font-size:clamp(38px,4.9vw,72px); line-height:1.04; letter-spacing:-.015em; max-width:14ch; margin:22px 0 22px; }
+.hero h1 em { font-style:italic; color:var(--terra); font-weight:400; }
+.hero-sub { max-width:56ch; color:var(--ink-soft); font-size:16.5px; font-weight:400; }
+.hero-ctas { display:flex; gap:16px; margin-top:32px; flex-wrap:wrap; align-items:center; }
+.hero-motto { position:absolute; bottom:96px; right:52px; font-family:var(--serif); font-style:italic; font-size:15px; color:var(--ink-soft); display:flex; align-items:center; gap:12px; }
+.hero-motto::before { content:""; width:34px; height:1px; background:var(--hair); }
+@media(max-width:860px){ .hero-motto{display:none;} }
 
-  .wrap{max-width:1240px;margin:0 auto;padding:0 48px;}
-  @media(max-width:720px){.wrap{padding:0 24px;}}
+.reveal-line { display:block; overflow:hidden; }
+.reveal-line span { display:block; transform:translateY(110%); }
+@media (prefers-reduced-motion: no-preference){
+  .loaded .reveal-line span { animation:lineup 1s cubic-bezier(.2,.65,.2,1) forwards; }
+  .loaded .reveal-line:nth-child(2) span { animation-delay:.12s; }
+  .loaded .reveal-line:nth-child(3) span { animation-delay:.24s; }
+  .loaded .fade-up { animation:fadeup .9s .5s cubic-bezier(.2,.65,.2,1) backwards; }
+  .loaded .fade-up.d2 { animation-delay:.68s; }
+}
+.loaded .reveal-line span { transform:none; }
+@keyframes lineup { from{transform:translateY(110%);} to{transform:translateY(0);} }
+@keyframes fadeup { from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:none;} }
 
-  .eyebrow{
-    font-family:var(--sans);
-    font-size:12px;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    font-weight:600;
-    color:var(--terra);
-    display:flex;align-items:center;gap:14px;
-  }
-  .eyebrow::before{content:"";display:block;width:34px;height:1px;background:var(--terra);}
+.ticker { border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); overflow:hidden; padding:14px 0; background:var(--paper); position:absolute; bottom:-54px; left:0; right:0; }
+.ticker-track { display:flex; gap:64px; width:max-content; animation:tick 36s linear infinite; }
+@media (prefers-reduced-motion: reduce){ .ticker-track{animation:none;} }
+@keyframes tick { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+.ticker span { font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--ink-soft); white-space:nowrap; display:flex; align-items:center; gap:64px; }
+.ticker i { font-style:normal; color:var(--terra); font-size:10px; }
 
-  /* ---------- NAV ---------- */
-  header{
-    position:fixed;top:0;left:0;right:0;z-index:50;
-    background:color-mix(in oklab, var(--paper) 88%, transparent);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--hair);
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    height:72px;
-  }
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);}
-  .brand img{height:34px;width:auto;display:block;}
-  .brand-name{
-    font-family:var(--sans);
-    font-weight:700;letter-spacing:.18em;font-size:14px;
-  }
-  .nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
-  .nav-links a{
-    text-decoration:none;color:var(--ink-soft);
-    font-size:13.5px;letter-spacing:.06em;font-weight:500;
-    transition:color .2s;
-  }
-  .nav-links a:hover{color:var(--terra);}
-  .lang{
-    display:flex;gap:2px;border:1px solid var(--hair);border-radius:99px;padding:3px;
-  }
-  .lang button{
-    border:0;background:transparent;font-family:var(--sans);font-size:11px;font-weight:600;
-    letter-spacing:.08em;padding:4px 10px;border-radius:99px;cursor:pointer;color:var(--ink-soft);
-    transition:all .2s;
-  }
-  .lang button.on{background:var(--ink);color:var(--paper);}
-  .nav-cta{
-    font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.04em;
-    color:var(--paper);background:var(--ink);text-decoration:none;
-    padding:10px 22px;border-radius:99px;transition:background .25s;
-  }
-  .nav-cta:hover{background:var(--terra);}
-  @media(max-width:980px){.nav-links{display:none;}}
+.hero + .sec { padding-top:clamp(150px,18vh,196px); }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    min-height:100vh;
-    min-height:100svh;
-    display:flex;flex-direction:column;justify-content:center;
-    position:relative;overflow:hidden;
-    padding-top:72px;
-  }
-  .hero > .wrap{width:100%;transform:translateY(14px);}
-  .hero-q{
-    position:absolute;right:-8%;top:50%;transform:translateY(-50%);
-    width:min(58vw,760px);opacity:.07;pointer-events:none;
-    animation:qfloat 14s ease-in-out infinite alternate;
-  }
-  @keyframes qfloat{from{transform:translateY(-52%) rotate(-2deg);}to{transform:translateY(-48%) rotate(2deg);}}
-  .hero h1{
-    font-family:var(--serif);
-    font-weight:300;
-    font-size:clamp(38px,4.9vw,72px);
-    line-height:1.04;
-    letter-spacing:-.015em;
-    max-width:13.5ch;
-    margin:24px 0 24px;
-  }
-  .hero h1 em{font-style:italic;color:var(--terra);font-weight:400;}
-  .hero-sub{
-    max-width:52ch;color:var(--ink-soft);font-size:16.5px;font-weight:400;
-  }
-  .hero-ctas{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;align-items:center;}
-  .btn-primary{
-    font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.04em;
-    background:var(--terra);color:var(--paper);text-decoration:none;
-    padding:16px 32px;border-radius:99px;
-    transition:background .25s, transform .25s;
-  }
-  .btn-primary:hover{background:var(--terra-deep);transform:translateY(-2px);}
-  .btn-ghost{
-    font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.04em;
-    color:var(--ink);text-decoration:none;padding:16px 8px;
-    border-bottom:1px solid var(--ink);transition:color .2s,border-color .2s;
-  }
-  .btn-ghost:hover{color:var(--terra);border-color:var(--terra);}
-  .hero-motto{
-    position:absolute;bottom:102px;right:48px;
-    font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-soft);
-    display:flex;align-items:center;gap:12px;
-  }
-  .hero-motto::before{content:"";width:34px;height:1px;background:var(--hair);}
-  @media(max-width:860px){.hero-motto{display:none;}}
+@media(max-width:760px){
+  .hero { padding-top:96px; }
+  .hero-q { position:static; display:block; width:120px; opacity:.4; margin:0 auto 18px; transform:none; animation:none; }
+  .hero h1 { font-size:clamp(46px,12vw,60px); max-width:12ch; }
+  .hero-sub { font-size:16px; }
+}
 
-  /* line reveal */
-  .reveal-line{display:block;overflow:hidden;}
-  .reveal-line span{display:block;transform:translateY(110%);}
-  @media (prefers-reduced-motion: no-preference){
-    .loaded .reveal-line span{animation:lineup 1s cubic-bezier(.2,.65,.2,1) forwards;}
-    .loaded .reveal-line:nth-child(2) span{animation-delay:.12s;}
-    .loaded .reveal-line:nth-child(3) span{animation-delay:.24s;}
-    .loaded .fade-up{animation:fadeup .9s .5s cubic-bezier(.2,.65,.2,1) backwards;}
-    .loaded .fade-up.d2{animation-delay:.68s;}
-  }
-  .loaded .reveal-line span{transform:none;}
-  @keyframes lineup{from{transform:translateY(110%);}to{transform:translateY(0);}}
-  @keyframes fadeup{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+/* ---- Stakes (mobile-safe grid) ---- */
+.stakes-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:70px; align-items:center; }
+@media(max-width:760px){ .stakes-grid{ grid-template-columns:1fr; gap:32px; } }
 
-  /* industries ticker */
-  .ticker{
-    border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
-    overflow:hidden;padding:14px 0;background:var(--paper);
-    position:absolute;bottom:-54px;left:0;right:0;
-  }
-  .ticker-track{display:flex;gap:64px;width:max-content;animation:tick 36s linear infinite;}
-  @media (prefers-reduced-motion: reduce){.ticker-track{animation:none;}}
-  @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  .ticker span{
-    font-family:var(--sans);font-size:12px;letter-spacing:.26em;text-transform:uppercase;
-    color:var(--ink-soft);white-space:nowrap;display:flex;align-items:center;gap:64px;
-  }
-  .ticker i{font-style:normal;color:var(--terra);font-size:10px;}
+/* ---- Tag row (industries / geography) ---- */
+.tag-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
+.tag { font-size:13.5px; font-weight:600; color:var(--ink); border:1px solid var(--hair); padding:9px 18px; letter-spacing:.03em; }
 
-  /* ---------- SECTIONS ---------- */
-  section{padding:clamp(70px,9vh,96px) 0;}
-  .hero + .stakes{padding-top:clamp(88px,11vh,118px);}
-  .sec-head{display:grid;grid-template-columns:1fr 1.4fr;gap:54px;margin-bottom:48px;align-items:end;}
-  @media(max-width:860px){.sec-head{grid-template-columns:1fr;gap:24px;}}
-  h2{
-    font-family:var(--serif);font-weight:300;
-    font-size:clamp(32px,3.4vw,48px);line-height:1.1;letter-spacing:-.01em;
-    text-wrap:pretty;
-  }
-  h2 em{font-style:italic;color:var(--terra);}
-  .sec-intro{color:var(--ink-soft);max-width:46ch;}
+/* ---- Bearing spotlight callout ---- */
+.spotlight-card { display:grid; grid-template-columns:1fr auto; gap:28px; align-items:center; background:var(--ink); color:var(--paper); padding:36px 40px; margin-top:32px; }
+@media(max-width:720px){ .spotlight-card{grid-template-columns:1fr;text-align:left;} }
+.spotlight-card h3 { font-family:var(--serif); font-weight:400; font-size:24px; margin-bottom:8px; }
+.spotlight-card p { color:rgba(250,246,239,.68); font-size:15px; max-width:52ch; }
 
-  /* scroll reveal */
-  .sr{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.65,.2,1),transform .8s cubic-bezier(.2,.65,.2,1);}
-  .sr.in{opacity:1;transform:none;}
-  @media (prefers-reduced-motion: reduce){.sr{opacity:1;transform:none;transition:none;}}
-
-  /* ---------- STAKES ---------- */
-  .stakes{background:var(--paper-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);}
-  .stakes-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center;}
-  @media(max-width:860px){.stakes-grid{grid-template-columns:1fr;gap:44px;}}
-  .stakes p{color:var(--ink-soft);margin-top:22px;max-width:52ch;}
-  .stakes .pull{
-    font-family:var(--serif);font-style:italic;font-weight:400;
-    font-size:clamp(21px,2vw,26px);line-height:1.35;color:var(--ink);
-    border-left:1px solid var(--terra);padding-left:32px;
-  }
-
-  /* ---------- PROGRAM (interactive) ---------- */
-  .axes{border-top:1px solid var(--hair);}
-  .axis{
-    border-bottom:1px solid var(--hair);
-    cursor:pointer;
-  }
-  .axis-bar{
-    display:grid;grid-template-columns:90px 1fr auto;gap:28px;align-items:baseline;
-    padding:26px 8px;transition:background .3s;
-  }
-  .axis:hover .axis-bar{background:color-mix(in oklab, var(--terra) 4%, transparent);}
-  .axis-num{
-    font-family:var(--serif);font-style:italic;font-size:30px;color:var(--terra);font-weight:300;
-  }
-  .axis-title{
-    font-family:var(--serif);font-weight:400;font-size:clamp(23px,2.3vw,32px);letter-spacing:-.01em;
-  }
-  .axis-toggle{
-    font-family:var(--sans);font-size:22px;color:var(--ink-soft);font-weight:300;
-    transition:transform .4s cubic-bezier(.2,.65,.2,1);align-self:center;
-  }
-  .axis.open .axis-toggle{transform:rotate(45deg);color:var(--terra);}
-  .axis-body{
-    display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.2,.65,.2,1);
-  }
-  .axis.open .axis-body{grid-template-rows:1fr;}
-  .axis-inner{overflow:hidden;}
-  .axis-content{
-    display:grid;grid-template-columns:1fr 1fr;gap:50px;
-    padding:2px 8px 36px 118px;
-  }
-  @media(max-width:860px){.axis-content{grid-template-columns:1fr;padding-left:8px;gap:28px;}}
-  .axis-content p{color:var(--ink-soft);max-width:48ch;}
-  .axis-list{list-style:none;display:flex;flex-direction:column;gap:14px;}
-  .axis-list li{
-    display:grid;grid-template-columns:16px 1fr;gap:14px;color:var(--ink);font-size:15.5px;
-  }
-  .axis-list li::before{content:"◆";color:var(--terra);font-size:9px;line-height:2.2;}
-  .axis-list b{font-weight:600;}
-  .axis-list small{display:block;color:var(--ink-soft);font-size:14px;}
-  .program-note{
-    margin-top:34px;display:flex;gap:18px;align-items:baseline;
-    font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink-soft);
-  }
-  .program-note b{color:var(--terra);font-style:normal;font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;white-space:nowrap;}
-
-  /* ---------- NUMBERS ---------- */
-  .numbers{background:var(--ink);color:var(--paper);}
-  .numbers .eyebrow{color:var(--paper-2);}
-  .numbers .eyebrow::before{background:var(--terra);}
-  .num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;}
-  @media(max-width:860px){.num-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:520px){.num-grid{grid-template-columns:1fr;}}
-  .num-cell{padding:8px 36px;border-left:1px solid rgba(250,246,239,.18);}
-  .num-cell:first-child{border-left:0;padding-left:0;}
-  @media(max-width:860px){.num-cell{padding:18px 24px;}.num-cell:nth-child(odd){border-left:0;padding-left:0;}}
-  .num-val{
-    font-family:var(--serif);font-weight:200;font-size:clamp(48px,4.8vw,72px);line-height:1;
-    color:var(--paper);
-  }
-  .num-val sup{font-size:.45em;color:var(--terra);top:-.7em;position:relative;font-style:italic;}
-  .num-label{margin-top:14px;font-size:14px;color:rgba(250,246,239,.66);max-width:24ch;}
-  .numbers h2{color:var(--paper);}
-  .numbers h2 em{color:var(--terra);}
-
-  /* ---------- LEVERS ---------- */
-  .levers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);}
-  @media(max-width:860px){.levers-grid{grid-template-columns:1fr;}}
-  .lever{background:var(--paper);padding:36px 34px;transition:background .3s;position:relative;}
-  .lever:hover{background:var(--paper-2);}
-  .lever-num{font-family:var(--serif);font-style:italic;color:var(--terra);font-size:26px;}
-  .lever h3{font-family:var(--serif);font-weight:400;font-size:26px;margin:18px 0 14px;line-height:1.2;}
-  .lever .q{font-family:var(--serif);font-style:italic;color:var(--ink);font-size:17px;margin-bottom:12px;}
-  .lever p{color:var(--ink-soft);font-size:15px;}
-
-  /* ---------- DIGITAL STACK ---------- */
-  .stack{background:var(--paper-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);}
-  .stack-viz{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:8px;}
-  .stack-ai{
-    align-self:center;background:var(--terra);color:var(--paper);
-    font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-    padding:14px 30px;border-radius:99px;margin-bottom:8px;
-    box-shadow:0 12px 32px rgba(188,72,39,.25);
-  }
-  .stack-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
-  @media(max-width:720px){.stack-row{grid-template-columns:1fr 1fr;}}
-  .stack-cell,.stack-bar{
-    background:var(--paper);border:1px solid var(--hair);border-radius:10px;
-    padding:15px 14px;text-align:center;
-    transition:transform .3s, border-color .3s;
-  }
-  .stack-cell:hover,.stack-bar:hover{transform:translateY(-3px);border-color:var(--terra);}
-  .stack-cell b,.stack-bar b{display:block;font-size:13px;letter-spacing:.06em;font-weight:700;}
-  .stack-cell small,.stack-bar small{color:var(--ink-soft);font-size:12px;line-height:1.4;display:block;margin-top:4px;}
-  .stack-bar{text-align:left;display:flex;align-items:baseline;gap:18px;padding:15px 24px;}
-  .stack-bar.found{background:var(--ink);border-color:var(--ink);color:var(--paper);}
-  .stack-bar.found small{color:rgba(250,246,239,.6);}
-  .stack-caption{text-align:center;color:var(--ink-soft);font-size:14px;margin-top:18px;font-family:var(--serif);font-style:italic;}
-
-  /* ---------- ENGAGE / TIMELINE ---------- */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:46px;counter-reset:step;position:relative;}
-  @media(max-width:860px){.steps{grid-template-columns:1fr;gap:40px;}}
-  .step{position:relative;padding-top:34px;}
-  .step::before{
-    content:"";position:absolute;top:0;left:0;right:-56px;height:1px;background:var(--hair);
-  }
-  .step:last-child::before{right:0;}
-  .step::after{
-    content:"";position:absolute;top:-4px;left:0;width:9px;height:9px;border-radius:50%;
-    background:var(--terra);
-  }
-  .step-kicker{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--terra);}
-  .step h3{font-family:var(--serif);font-weight:400;font-size:30px;margin:12px 0 4px;}
-  .step .dur{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:15px;}
-  .step p{color:var(--ink-soft);font-size:15.5px;margin-top:14px;max-width:34ch;}
-
-  /* ---------- TEAM ---------- */
-  .team-row{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;margin-top:56px;}
-  @media(max-width:980px){.team-row{grid-template-columns:repeat(3,1fr);}}
-  @media(max-width:620px){.team-row{grid-template-columns:1fr 1fr;}}
-  .member{text-align:left;}
-  .avatar{
-    aspect-ratio:1/1.18;border-radius:0;width:100%;height:auto;
-    background:repeating-linear-gradient(-45deg,var(--paper-2) 0 10px,#EDE5D6 10px 20px);
-    border:1px solid var(--hair);
-    display:flex;align-items:center;justify-content:center;
-    margin-bottom:16px;position:relative;overflow:hidden;
-  }
-  .avatar span{
-    font-family:var(--serif);font-style:italic;font-size:38px;color:var(--terra);opacity:.85;
-  }
-  .avatar i{display:none;}
-  .member b{display:block;font-family:var(--serif);font-weight:500;font-size:18px;}
-  .member small{color:var(--ink-soft);font-size:13.5px;}
-
-  .checks{display:flex;flex-direction:column;gap:18px;margin-top:48px;max-width:620px;}
-  .check{display:grid;grid-template-columns:28px 1fr;gap:16px;align-items:baseline;font-size:17px;}
-  .check i{font-style:normal;color:var(--terra);font-weight:700;}
-
-  /* ---------- CTA ---------- */
-  .cta{background:var(--ink);color:var(--paper);text-align:center;padding:clamp(80px,10vh,112px) 0;position:relative;overflow:hidden;}
-  .cta img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:520px;opacity:.06;pointer-events:none;}
-  .cta .eyebrow{justify-content:center;color:rgba(250,246,239,.7);}
-  .cta .eyebrow::before{background:var(--terra);}
-  .cta h2{color:var(--paper);max-width:20ch;margin:26px auto 18px;}
-  .cta p{color:rgba(250,246,239,.65);max-width:52ch;margin:0 auto;}
-  .cta .hero-ctas{justify-content:center;}
-  .cta .btn-ghost{color:var(--paper);border-color:rgba(250,246,239,.5);}
-  .cta .btn-ghost:hover{color:var(--terra);border-color:var(--terra);}
-
-  /* ---------- FOOTER ---------- */
-  footer.site-footer{padding:54px 0 28px;border-top:1px solid var(--hair);background:var(--paper);}
-  .footer-grid{display:grid;grid-template-columns:1.3fr .85fr .85fr 1.15fr;gap:42px;align-items:start;}
-  .footer-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);margin-bottom:18px;}
-  .footer-logo img{height:31px;width:auto;}
-  .footer-logo span{font-weight:700;letter-spacing:.18em;font-size:13px;}
-  .footer-brand p,.footer-col p,.footer-col span{color:var(--ink-soft);font-size:13.5px;line-height:1.55;max-width:32ch;}
-  .footer-col h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;font-weight:700;}
-  .foot-nav{display:flex;flex-direction:column;gap:8px;}
-  .foot-nav a,.footer-col a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;transition:color .2s;}
-  .foot-nav a:hover,.footer-col a:hover{color:var(--terra);}
-  .footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:42px;padding-top:20px;border-top:1px solid var(--hair);color:var(--ink-soft);font-size:12.5px;}
-  .footer-bottom .motto{font-family:var(--serif);font-style:italic;color:var(--terra);font-size:14px;}
-  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:34px;}}
-  @media(max-width:620px){.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:8px;}}
-
-  @media(max-height:760px) and (min-width:861px){
-    section{padding:58px 0;}
-    .hero h1{font-size:clamp(36px,4.5vw,64px);margin:18px 0;}
-    .hero-sub{font-size:16px;}
-    .hero-ctas{margin-top:26px;}
-    .sec-head{margin-bottom:34px;}
-    .axis-bar{padding:20px 8px;}
-    .num-grid{margin-top:30px;}
-  }
+/* ---- Team ---- */
+.team-row { display:grid; grid-template-columns:repeat(5,1fr); gap:28px; margin-top:52px; }
+@media(max-width:980px){ .team-row{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:620px){
+  .team-row{grid-template-columns:1fr 1fr;}
+  .team-row .member:last-child{ grid-column:1/-1; max-width:calc(50% - 14px); margin:0 auto; }
+}
+.member { text-align:left; }
+.avatar { aspect-ratio:1/1.18; width:100%; height:auto; background:repeating-linear-gradient(-45deg,var(--paper-2) 0 10px,#EDE5D6 10px 20px); border:1px solid var(--hair); display:flex; align-items:center; justify-content:center; margin-bottom:16px; overflow:hidden; }
+.avatar span { font-family:var(--serif); font-style:italic; font-size:36px; color:var(--terra); opacity:.85; }
+.avatar img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+.member b { display:block; font-family:var(--serif); font-weight:500; font-size:17px; }
+.member small { color:var(--ink-soft); font-size:13px; }
 </style>
 </head>
 <body>
 
-<header data-screen-label="Navigation">
-  <div class="wrap nav">
-    <a class="brand" href="index.html">
-      <img src="assets/logo-q.png" alt="Qualamantis logo">
-      <span class="brand-name">QUALAMANTIS</span>
-    </a>
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span class="brand-name">QUALAMANTIS</span></a>
     <ul class="nav-links">
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html">Industries</a></li>
       <li><a href="program.html">The Program</a></li>
       <li><a href="digital.html">Digitalisation</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="partners.html">Partners</a></li>
     </ul>
-    <div style="display:flex;align-items:center;gap:18px;">
-      <div class="lang lang-sw" aria-label="Language">
-        <button class="on" data-lang="en" type="button">EN</button><button data-lang="it" type="button">IT</button><button data-lang="fr" type="button">FR</button>
-      </div>
-      <a class="nav-cta" href="contact.html">Contact us</a>
+    <div class="nav-end">
+      <div class="lang-sw"><button class="on" data-lang="en">EN</button><button data-lang="it">IT</button><button data-lang="fr">FR</button></div>
+      <a class="nav-cta" href="contact.html">Contact</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
+  <div class="mobile-nav"><div class="mobile-nav-inner"><div class="wrap">
+    <ul>
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="program.html">The Program</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="digital.html">Digitalisation</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div></div></div>
 </header>
 
 <main id="top">
@@ -401,338 +119,234 @@
   <section class="hero" data-screen-label="Hero">
     <img class="hero-q" src="assets/logo-q.png" alt="">
     <div class="wrap">
-      <div class="eyebrow fade-up" style="animation-delay:.05s;">Business Transformation Consultancy</div>
+      <div class="eyebrow fade-up" style="animation-delay:.05s;">Business Transformation for Quality &amp; EHS · Engineering · Manufacturing · Cost</div>
       <h1>
         <span class="reveal-line"><span>The status quo</span></span>
         <span class="reveal-line"><span>has a <em>price.</em></span></span>
         <span class="reveal-line"><span>We help you stop paying it.</span></span>
       </h1>
-      <p class="hero-sub fade-up">Senior practitioners who diagnose where value leaks out of your business, build the processes and people to stop it — and engineer product cost down, with savings that reach the P&amp;L.</p>
+      <p class="hero-sub fade-up">Qualamantis is a global team of senior practitioners with 30+ years leading this transformation inside the world's most demanding industries. We diagnose where value leaks out of your business, build what stops it, and stay until the result is embedded — not when the slide deck is delivered.</p>
       <div class="hero-ctas fade-up d2">
-        <a class="btn-primary" href="program.html">Explore the program</a>
-        <a class="btn-ghost" href="contact.html">Talk to us</a>
+        <a class="btn-fill" href="services.html">See what we do</a>
+        <a class="btn-line" href="contact.html">Talk to us</a>
       </div>
     </div>
     <div class="hero-motto">Per aspera ad astra</div>
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span>Automotive <i>◆</i> Aerospace <i>◆</i> Rail <i>◆</i> Renewable Energy <i>◆</i> Off-Highway <i>◆</i> Marine &amp; Maritime <i>◆</i> Heavy Industries <i>◆</i></span>
-        <span>Automotive <i>◆</i> Aerospace <i>◆</i> Rail <i>◆</i> Renewable Energy <i>◆</i> Off-Highway <i>◆</i> Marine &amp; Maritime <i>◆</i> Heavy Industries <i>◆</i></span>
+        <span>Automotive <i>◆</i> Aerospace <i>◆</i> Rail <i>◆</i> Renewable Energy <i>◆</i> Off-Highway <i>◆</i> Marine &amp; Maritime <i>◆</i> Heavy Industries <i>◆</i> Rolling Bearings <i>◆</i></span>
+        <span>Automotive <i>◆</i> Aerospace <i>◆</i> Rail <i>◆</i> Renewable Energy <i>◆</i> Off-Highway <i>◆</i> Marine &amp; Maritime <i>◆</i> Heavy Industries <i>◆</i> Rolling Bearings <i>◆</i></span>
       </div>
     </div>
   </section>
 
   <!-- STAKES -->
-  <section class="stakes" data-screen-label="The Stakes">
+  <section class="sec bg-2">
     <div class="wrap stakes-grid">
       <div class="sr">
         <div class="eyebrow">The Stakes</div>
-        <h2 style="margin-top:24px;">Hidden costs rarely show up as one line on the P&amp;L</h2>
-        <p>Recurring defects, slow launches and constant firefighting surface as eroded margin, missed deadlines and lost customers — a tax most companies pay without ever measuring it.</p>
+        <h2 class="serif" style="margin-top:24px;">Hidden costs rarely show up as one line on the P&amp;L</h2>
+        <p class="lede" style="margin-top:22px;">Recurring defects, slow launches and constant firefighting surface as eroded margin, missed deadlines and lost customers — a tax most companies pay without ever measuring it.</p>
       </div>
-      <div class="pull sr">The real question is not whether you can afford to transform — it is how much the status quo is costing you every year.</div>
+      <blockquote class="pull-quote sr">The real question is not whether you can afford to transform — it is how much the status quo is costing you every year.</blockquote>
     </div>
   </section>
 
-  <!-- PROGRAM -->
-  <section id="program" data-screen-label="The Program">
+  <!-- WHAT WE DO -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head sr">
+        <div>
+          <div class="eyebrow">What We Do</div>
+          <h2 class="serif" style="margin-top:24px;">Business Transformation across <em>four domains</em></h2>
+        </div>
+        <p class="lede" style="align-self:end;">One strategic offer, four interconnected domains — because quality, engineering, manufacturing and cost are rarely separate problems. We diagnose, design and implement across all four, or focus wherever the leverage is greatest.</p>
+      </div>
+      <div class="tile-grid cols-4 sr">
+        <a class="tile" href="services.html#quality-ehs" style="text-decoration:none;color:inherit;">
+          <span class="tile-n">01</span>
+          <h3>Quality &amp; EHS</h3>
+          <p>Strategy to shop floor — management systems, ISO/IATF certification, audits, ESG reporting, digitalisation.</p>
+        </a>
+        <a class="tile" href="services.html#design-engineering" style="text-decoration:none;color:inherit;">
+          <span class="tile-n">02</span>
+          <h3>Design &amp; Engineering</h3>
+          <p>Design for Six Sigma, warranty analysis, innovation events, IP strategy — quality and performance built in before manufacturing begins.</p>
+        </a>
+        <a class="tile" href="services.html#manufacturing-operations" style="text-decoration:none;color:inherit;">
+          <span class="tile-n">03</span>
+          <h3>Manufacturing &amp; Operations</h3>
+          <p>Lean, Zero Defect and Advanced Procurement — resilient, cost-efficient operations and supply chains.</p>
+        </a>
+        <a class="tile" href="services.html#cost-improvement" style="text-decoration:none;color:inherit;">
+          <span class="tile-n">04</span>
+          <h3>Cost Improvement</h3>
+          <p>A transversal program to engineer product cost down — across all processes, with or without a quality problem.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="sec bg-2">
+    <div class="wrap">
+      <div class="sec-head sr">
+        <div>
+          <div class="eyebrow">Industries We Serve</div>
+          <h2 class="serif" style="margin-top:24px;">At home in regulated, high-stakes industries</h2>
+        </div>
+        <p class="lede" style="align-self:end;">We work primarily with industrial companies where quality, reliability and product complexity are strategic priorities — where the cost of failure, in warranty, in safety, in reputation, is significant.</p>
+      </div>
+      <div class="tag-row sr">
+        <div class="tag">Automotive</div>
+        <div class="tag">Aerospace</div>
+        <div class="tag">Rail</div>
+        <div class="tag">Renewable Energy</div>
+        <div class="tag">Off-Highway</div>
+        <div class="tag">Heavy Industries</div>
+        <div class="tag">Marine &amp; Maritime</div>
+      </div>
+      <a class="spotlight-card sr" href="industries.html#bearings" style="text-decoration:none;">
+        <div>
+          <h3>Sector Spotlight — Rolling Bearings</h3>
+          <p>Not a niche we entered by accident. Years of senior engagement with major bearing manufacturers and their supply chains, from heat treatment and grinding to warranty analysis and design review.</p>
+        </div>
+        <span class="btn-line light">Read the deep dive →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- PROGRAM TEASER -->
+  <section class="sec">
     <div class="wrap">
       <div class="sec-head sr">
         <div>
           <div class="eyebrow">The Program</div>
-          <h2 style="margin-top:24px;">One program, <em>three moves</em> that compound</h2>
+          <h2 class="serif" style="margin-top:24px;">One program, <em>three moves</em> that compound</h2>
         </div>
-        <p class="sec-intro">Diagnose → Build → Capture value. Not a report to file away — a transformation with clear owners, KPIs, and your own people trained to carry it on.</p>
+        <p class="lede" style="align-self:end;">Diagnose → Build → Capture value. Not a report to file away — a transformation with clear owners, KPIs, and your own people trained to carry it on.</p>
       </div>
-
-      <div class="axes">
-        <div class="axis sr" data-axis>
-          <div class="axis-bar">
-            <div class="axis-num">01</div>
-            <div class="axis-title">Gap Assessment</div>
-            <div class="axis-toggle">+</div>
-          </div>
-          <div class="axis-body"><div class="axis-inner"><div class="axis-content">
-            <p>Together with your leadership we run a company-level gap and SWOT analysis — covering business performance and product cost as two independent lenses. One honest picture before you spend a euro on change.</p>
-            <ul class="axis-list">
-              <li><span><b>Gap &amp; SWOT analysis</b><small>Strategic strengths, weaknesses and blind spots.</small></span></li>
-              <li><span><b>Business process assessment</b><small>Whether your core processes deliver on performance and cost.</small></span></li>
-              <li><span><b>Hidden-factor assessment</b><small>The culture and behaviours that shape real outcomes.</small></span></li>
-              <li><span><b>Lean &amp; digital maturity</b><small>Where waste, missing data and process gaps slow you down.</small></span></li>
-            </ul>
-          </div></div></div>
-        </div>
-
-        <div class="axis sr" data-axis>
-          <div class="axis-bar">
-            <div class="axis-num">02</div>
-            <div class="axis-title">Action Plan</div>
-            <div class="axis-toggle">+</div>
-          </div>
-          <div class="axis-body"><div class="axis-inner"><div class="axis-content">
-            <p>We turn the diagnosis into processes and people that hold — a plan with clear owners and KPIs, built around seven typical workstreams.</p>
-            <ul class="axis-list">
-              <li><span><b>Critical-to-business processes</b><small>APQP, MOC, PPAP, CCM, supplier approval and more.</small></span></li>
-              <li><span><b>Short-term risk management</b><small>Contain today's risks before they reach the customer.</small></span></li>
-              <li><span><b>Competence development</b><small>Close capability gaps across engineering and operations.</small></span></li>
-              <li><span><b>Problem solving &amp; continuous improvement</b><small>Zero Defect, DMAIC and Six Sigma.</small></span></li>
-              <li><span><b>Operational support</b><small>Hands-on help to keep momentum and embed the change.</small></span></li>
-            </ul>
-          </div></div></div>
-        </div>
-
-        <div class="axis sr" data-axis>
-          <div class="axis-bar">
-            <div class="axis-num">03</div>
-            <div class="axis-title">Cost Improvement Program</div>
-            <div class="axis-toggle">+</div>
-          </div>
-          <div class="axis-body"><div class="axis-inner"><div class="axis-content">
-            <p>A stand-alone program to engineer product cost down — across all processes, with or without a performance problem. Run by a co-located, cross-functional team with a mandate to act.</p>
-            <ul class="axis-list">
-              <li><span><b>Product specifications</b><small>Prioritize what customers truly value.</small></span></li>
-              <li><span><b>Sourcing &amp; price</b><small>Clean-sheet target costing, part by part.</small></span></li>
-              <li><span><b>Technical solutions</b><small>Teardown-driven redesign of product and process.</small></span></li>
-              <li><span><b>Cost of Non-Quality as a diagnostic</b><small>Losses quantified and fed back as improvement targets.</small></span></li>
-            </ul>
-          </div></div></div>
-        </div>
+      <div class="tile-grid cols-3 sr">
+        <a class="tile" href="program.html#axis1" style="text-decoration:none;color:inherit;">
+          <span class="tile-n">01</span>
+          <h3>Gap Assessment</h3>
+          <p>A company-level gap and SWOT analysis — one honest picture before you spend a euro on change.</p>
+        </a>
+        <a class="tile" href="program.html#axis2" style="text-decoration:none;color:inherit;">
+          <span class="tile-n">02</span>
+          <h3>Action Plan</h3>
+          <p>The diagnosis turned into processes and people that hold — seven workstreams, clear owners, measurable KPIs.</p>
+        </a>
+        <a class="tile" href="program.html#axis3" style="text-decoration:none;color:inherit;">
+          <span class="tile-n">03</span>
+          <h3>Cost Improvement Program</h3>
+          <p>A stand-alone engine to engineer product cost down — with or without a performance problem.</p>
+        </a>
       </div>
-
-      <div class="program-note sr">
-        <b>In parallel —</b>
-        <span>once the plan is set, digitalisation and cost reduction run together, and each cycle resets the baseline higher.</span>
-      </div>
+      <p style="margin-top:28px;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-soft);" class="sr">In parallel — once the plan is set, digitalisation and cost reduction run together, and each cycle resets the baseline higher.</p>
     </div>
   </section>
 
   <!-- NUMBERS -->
-  <section class="numbers" id="results" data-screen-label="Results">
+  <section class="sec bg-ink">
     <div class="wrap">
       <div class="sec-head sr" style="margin-bottom:0;">
         <div>
           <div class="eyebrow">Results</div>
-          <h2 style="margin-top:24px;">Real savings, <em>measured in euros</em></h2>
+          <h2 class="serif" style="margin-top:24px;">Real savings, <em>measured in euros</em></h2>
         </div>
-        <p class="sec-intro" style="color:rgba(250,246,239,.65);">Run as a structured Cost Improvement Program, this is the typical prize — identified in detail and taken through to implementation.</p>
+        <p class="lede" style="align-self:end;">Run as a structured Cost Improvement Program, this is the typical prize — identified in detail and taken through to implementation.</p>
       </div>
-      <div class="num-grid">
-        <div class="num-cell sr"><div class="num-val"><span data-count="3"></span>–<span data-count="10"></span><sup>%</sup></div><div class="num-label">of product cost identified and implemented</div></div>
-        <div class="num-cell sr"><div class="num-val"><span data-count="12"></span><sup>mo</sup></div><div class="num-label">to embed the new way of working, with your own experts trained</div></div>
-        <div class="num-cell sr"><div class="num-val"><span data-count="30"></span><sup>+</sup></div><div class="num-label">years of hands-on leadership in global industry</div></div>
-        <div class="num-cell sr"><div class="num-val"><span data-count="7"></span><sup>&nbsp;</sup></div><div class="num-label">demanding industries served, across four continents</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LEVERS -->
-  <section data-screen-label="Where savings come from">
-    <div class="wrap">
-      <div class="sec-head sr">
-        <div>
-          <div class="eyebrow">Where Savings Come From</div>
-          <h2 style="margin-top:24px;">Three levers — and the question each answers</h2>
-        </div>
-      </div>
-      <div class="levers-grid sr">
-        <div class="lever">
-          <div class="lever-num">No. 1</div>
-          <h3>Product specifications</h3>
-          <p class="q">“Do my products have the right features?”</p>
-          <p>Prioritize what customers truly value — and stop paying for what they don't.</p>
-        </div>
-        <div class="lever">
-          <div class="lever-num">No. 2</div>
-          <h3>Sourcing &amp; price</h3>
-          <p class="q">“Am I buying at the right price?”</p>
-          <p>Clean-sheet target costing, part by part, fuelled by supplier workshops.</p>
-        </div>
-        <div class="lever">
-          <div class="lever-num">No. 3</div>
-          <h3>Technical solutions</h3>
-          <p class="q">“Is there a lower-cost design?”</p>
-          <p>Teardown-driven redesign of product and process, informed by benchmarking.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIGITALISATION -->
-  <section class="stack" data-screen-label="Digitalisation">
-    <div class="wrap">
-      <div class="sec-head sr">
-        <div>
-          <div class="eyebrow">Digitalisation</div>
-          <h2 style="margin-top:24px;">A connected, <em>AI-accelerated</em> landscape</h2>
-        </div>
-        <p class="sec-intro">We digitalize your core business processes — turning manual work and scattered data into connected, real-time workflows you can trust.</p>
-      </div>
-      <div class="stack-viz sr">
-        <div class="stack-ai">AI — Value Accelerator</div>
-        <div class="stack-row">
-          <div class="stack-cell"><b>ERP</b><small>Finance · supply chain · procurement</small></div>
-          <div class="stack-cell"><b>Process Mgmt</b><small>End-to-end enterprise systems</small></div>
-          <div class="stack-cell"><b>EHS &amp; Sustainability</b><small>Global compliance</small></div>
-          <div class="stack-cell"><b>Supplier Mgmt</b><small>Lifecycle &amp; performance</small></div>
-          <div class="stack-cell"><b>Extensions</b><small>PLM · CRM · maintenance</small></div>
-        </div>
-        <div class="stack-bar"><b>MES</b><small>Real-time execution, monitoring and control of production</small></div>
-        <div class="stack-bar found"><b>Data Foundation</b><small>Unified, reliable and secure data — IT/OT integration, governance, cybersecurity</small></div>
-        <p class="stack-caption">One flow from enquiry to delivery — not disconnected tools and spreadsheets.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ENGAGE -->
-  <section id="approach" data-screen-label="How we engage">
-    <div class="wrap">
-      <div class="sec-head sr">
-        <div>
-          <div class="eyebrow">How We Engage</div>
-          <h2 style="margin-top:24px;">A clear path, from first look to <em>lasting change</em></h2>
-        </div>
-        <p class="sec-intro">Scaled to your size and ambition — we co-resource alongside your team. We do not replace it.</p>
-      </div>
-      <div class="steps sr">
-        <div class="step">
-          <div class="step-kicker">Phase 1</div>
-          <h3>Diagnose</h3>
-          <div class="dur">Typically 4–6 weeks</div>
-          <p>A gap assessment and a quantified baseline of where you stand.</p>
-        </div>
-        <div class="step">
-          <div class="step-kicker">Phase 2</div>
-          <h3>Design</h3>
-          <div class="dur">Typically 4–8 weeks</div>
-          <p>A prioritized action plan with clear owners and leading KPIs.</p>
-        </div>
-        <div class="step">
-          <div class="step-kicker">Phase 3</div>
-          <h3>Deliver</h3>
-          <div class="dur">Typically 6–12 months</div>
-          <p>Implementation alongside your teams — capability transferred, not rented.</p>
-        </div>
+      <div class="stat-grid on-dark">
+        <div class="stat-cell sr"><div class="stat-value"><span data-count="3"></span>–<span data-count="10"></span><sup>%</sup></div><div class="stat-label">of product cost identified and implemented</div></div>
+        <div class="stat-cell sr"><div class="stat-value"><span data-count="12"></span><sup>mo</sup></div><div class="stat-label">to embed the new way of working, with your own experts trained</div></div>
+        <div class="stat-cell sr"><div class="stat-value"><span data-count="30"></span><sup>+</sup></div><div class="stat-label">years of hands-on leadership in global industry</div></div>
+        <div class="stat-cell sr"><div class="stat-value"><span data-count="7"></span><sup>&nbsp;</sup></div><div class="stat-label">demanding industries served, across four continents</div></div>
       </div>
     </div>
   </section>
 
   <!-- TEAM -->
-  <section id="team" style="padding-top:clamp(56px,7vh,80px);" data-screen-label="Team">
+  <section class="sec">
     <div class="wrap">
       <div class="sec-head sr">
         <div>
           <div class="eyebrow">Why Qualamantis</div>
-          <h2 style="margin-top:24px;">We design the change — <em>and stay</em> to make it real</h2>
+          <h2 class="serif" style="margin-top:24px;">We design the change —<br><em>and stay</em> to make it real</h2>
         </div>
-        <div>
-          <div class="checks">
-            <div class="check"><i>✓</i><span>Senior practitioners who have led transformation in global industry</span></div>
-            <div class="check"><i>✓</i><span>A focus on savings that reach the P&amp;L, not just the report</span></div>
-            <div class="check"><i>✓</i><span>Performance, cost and sustainability driven as one agenda</span></div>
-          </div>
-        </div>
+        <ul class="cklist">
+          <li>Senior practitioners who have led transformation in global industry</li>
+          <li>A focus on savings that reach the P&amp;L, not just the report</li>
+          <li>Quality, EHS, engineering and cost driven as one agenda</li>
+        </ul>
       </div>
       <div class="team-row sr">
-        <div class="member"><div class="avatar"><span>SR</span></div><b>Silvio Rubatto</b><small>Business Quality Executive</small></div>
-        <div class="member"><div class="avatar"><span>BD</span></div><b>Bryan Dodson</b><small>Product Quality &amp; Reliability</small></div>
-        <div class="member"><div class="avatar"><span>DD</span></div><b>Domenico Ducci</b><small>Advanced Procurement</small></div>
-        <div class="member"><div class="avatar"><span>FZ</span></div><b>Filippo Zingariello</b><small>Product Dev &amp; Technology</small></div>
-        <div class="member"><div class="avatar"><span>RJ</span></div><b>Rob Jenkinson</b><small>EHS &amp; Sustainability</small></div>
+        <div class="member"><div class="avatar"><img src="assets/silvio.png" alt="Silvio Rubatto"></div><b>Silvio Rubatto</b><small>Business Quality</small></div>
+        <div class="member"><div class="avatar"><img src="assets/bryan.png" alt="Bryan Dodson"></div><b>Bryan Dodson</b><small>Product Quality &amp; Reliability</small></div>
+        <div class="member"><div class="avatar"><img src="assets/domenico.png" alt="Domenico Ducci"></div><b>Domenico Ducci</b><small>Advanced Procurement</small></div>
+        <div class="member"><div class="avatar"><img src="assets/filippo.png" alt="Filippo Zingariello"></div><b>Filippo Zingariello</b><small>Product Dev &amp; Technology</small></div>
+        <div class="member"><div class="avatar"><img src="assets/rob.png" alt="Rob Jenkinson"></div><b>Rob Jenkinson</b><small>EHS &amp; Sustainability</small></div>
       </div>
+      <p style="margin-top:24px;" class="sr"><a class="btn-line" href="about.html">Meet the full team →</a></p>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta" id="contact" data-screen-label="Contact CTA">
-    <img src="assets/logo-q-cream.png" alt="">
+  <section class="sec bg-ink cta-band">
+    <img class="cta-q-bg" src="assets/logo-q-cream.png" alt="">
     <div class="wrap" style="position:relative;">
-      <div class="eyebrow">Where to Start</div>
-      <h2>Begin with a short Business Performance scan</h2>
-      <p>2–3 weeks. A quantified view of your losses and product-cost opportunities — both expressed in euros — and a board-ready recommendation. Low commitment, high clarity.</p>
-      <div class="hero-ctas" style="margin-top:44px;">
-        <a class="btn-primary" href="contact.html">Request the scan</a>
-        <a class="btn-ghost" href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
+      <div class="eyebrow sr">Where to Start</div>
+      <h2 class="serif sr">Begin with a short Business Performance scan</h2>
+      <p class="lede sr">2–3 weeks. A quantified view of your losses and product-cost opportunities — both expressed in euros — and a board-ready recommendation. Low commitment, high clarity.</p>
+      <div class="btn-group sr" style="justify-content:center;margin-top:36px;">
+        <a class="btn-fill light" href="contact.html">Request the scan</a>
+        <a class="btn-line light" href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer" data-screen-label="Footer">
+<footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <a class="footer-logo" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span>QUALAMANTIS</span></a>
-      <p>Business transformation, cost improvement and digitalisation for industrial companies.</p>
+      <p>Business transformation, cost improvement and digitalisation for industrial companies — with a deep specialism in rolling bearings.</p>
+      <div class="footer-social">
+        <!-- TODO: replace with the real Qualamantis LinkedIn company URL -->
+        <a class="social-icon" href="https://www.linkedin.com/company/qualamantis" target="_blank" rel="noopener" aria-label="Qualamantis on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      </div>
     </div>
-    <nav class="footer-col foot-nav" aria-label="Site">
-      <h4>Site</h4>
-      <a href="index.html">Home</a>
-      <a href="program.html">Program</a>
-      <a href="digital.html">Digitalisation</a>
+    <nav class="footer-col foot-nav" aria-label="Company">
+      <h4>Company</h4>
       <a href="about.html">About</a>
+      <a href="industries.html">Industries</a>
       <a href="partners.html">Partners</a>
       <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="footer-col foot-nav" aria-label="Services">
+      <h4>Services</h4>
+      <a href="services.html">What We Do</a>
+      <a href="program.html">The Program</a>
+      <a href="digital.html">Digitalisation</a>
     </nav>
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
       <span>Fondettes, France</span>
     </div>
-    <div class="footer-col">
-      <h4>GDPR / RGPD</h4>
-      <p>Contact messages are used only to reply to your enquiry. You can request access, correction or deletion at any time.</p>
-      <a href="contact.html">Privacy request</a>
-    </div>
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 Qualamantis · Fondettes, France</span>
-    <span class="motto">Per aspera ad astra</span>
+    <span class="footer-credit">site by Leonardo Rubatto</span>
+    <div class="footer-legal-row">
+      <a href="legal.html" style="color:var(--ink-soft);text-decoration:none;">Legal &amp; Privacy</a>
+      <span class="motto">Per aspera ad astra</span>
+    </div>
   </div>
 </footer>
 
-<script>
-  // hero entrance
-  window.addEventListener('load', () => document.body.classList.add('loaded'));
-  setTimeout(() => document.body.classList.add('loaded'), 600);
-
-  // scroll reveals
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.sr').forEach(el => io.observe(el));
-
-  // program accordion
-  const axes = document.querySelectorAll('[data-axis]');
-  const openAxis = (axis) => axes.forEach(a => a.classList.toggle('open', a === axis));
-  axes.forEach(axis => {
-    axis.addEventListener('mouseenter', () => openAxis(axis));
-    axis.addEventListener('focusin', () => openAxis(axis));
-    axis.querySelector('.axis-bar').addEventListener('click', () => {
-      const wasOpen = axis.classList.contains('open');
-      axes.forEach(a => a.classList.remove('open'));
-      if (!wasOpen) openAxis(axis);
-    });
-  });
-
-  // counters
-  const cio = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      cio.unobserve(e.target);
-      const target = +e.target.dataset.count;
-      const dur = 1400;
-      const t0 = performance.now();
-      const tick = (t) => {
-        const k = Math.min(1, (t - t0) / dur);
-        const ease = 1 - Math.pow(1 - k, 3);
-        e.target.textContent = Math.round(target * ease);
-        if (k < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    });
-  }, { threshold: 0.6 });
-  document.querySelectorAll('[data-count]').forEach(el => { el.textContent = '0'; cio.observe(el); });
-</script>
+<script src="assets/site.js"></script>
 <script src="assets/lang.js"></script>
 </body>
 </html>

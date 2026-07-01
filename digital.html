@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digitalisation — Qualamantis</title>
+<meta name="description" content="A connected, AI-accelerated digital landscape for Quality, EHS and Sustainability — built process-first, not tool-first.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/logo-q.png">
+<link rel="apple-touch-icon" href="assets/logo-q.png">
+<meta name="theme-color" content="#FAF6EF">
 <link rel="stylesheet" href="assets/shared.css">
 <style>
 /* ---- BENEFITS ---- */
@@ -43,6 +48,9 @@
 .s-chip.foundation small { color:rgba(250,246,239,.6); }
 .stack-caption { font-family:var(--serif); font-style:italic; font-size:16px; color:var(--ink-soft); margin-top:20px; text-align:center; }
 
+header{left: 0; right: 0; width: auto; max-width: 100% }
+
+
 /* ---- APPROACH ---- */
 .approach-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:80px; align-items:start; }
 @media(max-width:860px){ .approach-grid{grid-template-columns:1fr;gap:36px;} }
@@ -52,6 +60,17 @@
 .ap-n { font-family:var(--serif); font-style:italic; font-size:32px; font-weight:200; color:var(--terra); line-height:1.1; }
 .ap-step h4 { font-family:var(--serif); font-weight:500; font-size:20px; margin-bottom:6px; }
 .ap-step p { font-size:15px; color:var(--ink-soft); max-width:46ch; }
+/* ===== DIGITALISATION HERO IMAGE =====
+   Edit here to reposition/resize assets/light.png.
+   It is a normal grid item (2nd column of .digital-hero-grid) —
+   move it in the markup or change these rules; nothing is absolutely positioned. */
+.digital-hero-grid { display: grid; grid-template-columns:1fr 1.15fr; align-items:center; gap:1px; }
+.hero-art { width:100%; max-width:4000px; height:auto; justify-self:end; margin-top:-100px; }
+@media(max-width:860px){
+  .digital-hero-grid { grid-template-columns:1fr; gap: 10px }
+  .hero-art { width: 100%; justify-self:center; max-width:none; margin-top: 10px; scale:1.35; translate: 0 55px; transform-origin:center center }
+}
+/* ===== END DIGITALISATION HERO IMAGE ===== */
 </style>
 </head>
 <body>
@@ -60,31 +79,44 @@
   <div class="wrap nav-row">
     <a class="brand" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span class="brand-name">QUALAMANTIS</span></a>
     <ul class="nav-links">
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html">Industries</a></li>
       <li><a href="program.html">The Program</a></li>
       <li><a href="digital.html" aria-current="page">Digitalisation</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="partners.html">Partners</a></li>
     </ul>
     <div class="nav-end">
-      <div class="lang-sw"><button class="on">EN</button><button>IT</button><button>FR</button></div>
+      <div class="lang-sw"><button class="on" data-lang="en">EN</button><button data-lang="it">IT</button><button data-lang="fr">FR</button></div>
       <a class="nav-cta" href="contact.html">Contact</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
+  <div class="mobile-nav"><div class="mobile-nav-inner"><div class="wrap">
+    <ul>
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="program.html">The Program</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="digital.html" aria-current="page">Digitalisation</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div></div></div>
 </header>
 
 <main>
 
 <!-- PAGE HERO -->
-<section class="pg-hero">
+<section class="pg-hero digital-hero">
   <div class="wrap">
     <div class="pg-crumb"><a href="index.html">Home</a> <span>/</span> Digitalisation</div>
-    <div class="pg-hero-grid">
+    <div class="pg-hero-grid digital-hero-grid">
       <div>
         <h1 class="pg-title">A connected,<br><em>AI-accelerated</em><br>landscape</h1>
+        <p class="lede" style="margin-top:20px;">Once the action plan is set, we digitalize your core business processes — turning manual work and scattered data into connected, real-time workflows you can trust. One flow, from enquiry to delivery.</p>
       </div>
-      <div>
-        <p class="lede">Once the action plan is set, we digitalize your core business processes — turning manual work and scattered data into connected, real-time workflows you can trust. One flow, from enquiry to delivery.</p>
-      </div>
+      <!-- Move/resize this image via the ".hero-art" and ".digital-hero-grid" rules above -->
+      <img class="hero-art sr" src="assets/light.png" alt="Abstract illustration of light passing through a structured data grid">
     </div>
   </div>
 </section>
@@ -243,38 +275,42 @@
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <a class="footer-logo" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span>QUALAMANTIS</span></a>
-      <p>Business transformation, cost improvement and digitalisation for industrial companies.</p>
+      <p>Business transformation, cost improvement and digitalisation for industrial companies — with a deep specialism in rolling bearings.</p>
+      <div class="footer-social">
+        <!-- TODO: replace with the real Qualamantis LinkedIn company URL -->
+        <a class="social-icon" href="https://www.linkedin.com/company/qualamantis" target="_blank" rel="noopener" aria-label="Qualamantis on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      </div>
     </div>
-    <nav class="footer-col foot-nav" aria-label="Site">
-      <h4>Site</h4>
-      <a href="index.html">Home</a>
-      <a href="program.html">Program</a>
-      <a href="digital.html">Digitalisation</a>
+    <nav class="footer-col foot-nav" aria-label="Company">
+      <h4>Company</h4>
       <a href="about.html">About</a>
+      <a href="industries.html">Industries</a>
       <a href="partners.html">Partners</a>
       <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="footer-col foot-nav" aria-label="Services">
+      <h4>Services</h4>
+      <a href="services.html">What We Do</a>
+      <a href="program.html">The Program</a>
+      <a href="digital.html">Digitalisation</a>
     </nav>
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
       <span>Fondettes, France</span>
     </div>
-    <div class="footer-col">
-      <h4>GDPR / RGPD</h4>
-      <p>Contact messages are used only to reply to your enquiry. You can request access, correction or deletion at any time.</p>
-      <a href="contact.html">Privacy request</a>
-    </div>
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 Qualamantis · Fondettes, France</span>
-    <span class="motto">Per aspera ad astra</span>
+    <span class="footer-credit">site by Leonardo Rubatto</span>
+    <div class="footer-legal-row">
+      <a href="legal.html" style="color:var(--ink-soft);text-decoration:none;">Legal &amp; Privacy</a>
+      <span class="motto">Per aspera ad astra</span>
+    </div>
   </div>
 </footer>
 
-<script>
-  const srObs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');srObs.unobserve(e.target);}}),{threshold:.1});
-  document.querySelectorAll('.sr').forEach(el=>srObs.observe(el));
-</script>
+<script src="assets/site.js"></script>
 <script src="assets/lang.js"></script>
 </body>
 </html>

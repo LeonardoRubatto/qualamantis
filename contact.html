@@ -4,19 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Qualamantis</title>
+<meta name="description" content="Start with a short, structured diagnostic — Quality & EHS Rapid Assessment, CoNQ Scan, or Sustainability & EHS Maturity Review. No obligation, no sales pitch.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/logo-q.png">
+<link rel="apple-touch-icon" href="assets/logo-q.png">
+<meta name="theme-color" content="#FAF6EF">
 <link rel="stylesheet" href="assets/shared.css">
 <style>
-/* ---- SCAN STEPS ---- */
-.scan-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--hair); }
-@media(max-width:760px){ .scan-steps{grid-template-columns:1fr;} }
-.scan-step { padding:40px 34px 42px; border-right:1px solid var(--hair); position:relative; }
-.scan-step:last-child { border-right:0; }
-@media(max-width:760px){ .scan-step{border-right:0;border-bottom:1px solid var(--hair);} .scan-step:last-child{border-bottom:0;} }
-.scan-step::before { content:""; position:absolute; top:0; left:34px; right:34px; height:2px; background:var(--terra); }
-.scan-n { font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:var(--terra); margin-bottom:14px; }
-.scan-step h3 { font-family:var(--serif); font-weight:400; font-size:24px; margin-bottom:10px; }
-.scan-step p { color:var(--ink-soft); font-size:15.5px; }
-
 /* ---- FORM ---- */
 .contact-layout { display:grid; grid-template-columns:1.15fr .85fr; gap:80px; align-items:start; }
 @media(max-width:860px){ .contact-layout{grid-template-columns:1fr;gap:48px;} }
@@ -47,6 +41,18 @@
 .direct-val a { text-decoration:none; color:var(--terra); border-bottom:1px solid var(--terra); transition:color .2s; }
 .direct-val a:hover { color:var(--terra-d); }
 .direct-note { font-size:14px; color:var(--ink-soft); margin-top:4px; }
+
+/* ===== CONTACT HERO IMAGE =====
+   Edit here to reposition/resize assets/lighthousecontact.png.
+   It is a normal grid item (2nd column of .contact-hero-grid) — nothing is absolutely positioned. */
+.contact-hero-grid { grid-template-columns:1fr 1.15fr; align-items:start; gap:30px; }
+.contact-hero-grid .hero-art { width:100%; max-width:2000px; height:auto; justify-self:end; margin-top:-95px;}
+@media(max-width:860px){
+  .contact-hero-grid { grid-template-columns:1fr; gap: 10px }
+  .contact-hero-grid .hero-art { width: 100%; justify-self:center; max-width:none; margin-top: 10px; scale:1.25; translate: 0 55px; transform-origin:center center }
+}
+
+/* ===== END CONTACT HERO IMAGE ===== */
 </style>
 </head>
 <body>
@@ -55,16 +61,29 @@
   <div class="wrap nav-row">
     <a class="brand" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span class="brand-name">QUALAMANTIS</span></a>
     <ul class="nav-links">
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html">Industries</a></li>
       <li><a href="program.html">The Program</a></li>
       <li><a href="digital.html">Digitalisation</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="partners.html">Partners</a></li>
     </ul>
     <div class="nav-end">
-      <div class="lang-sw"><button class="on">EN</button><button>IT</button><button>FR</button></div>
+      <div class="lang-sw"><button class="on" data-lang="en">EN</button><button data-lang="it">IT</button><button data-lang="fr">FR</button></div>
       <a class="nav-cta" href="contact.html" aria-current="page">Contact</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
+  <div class="mobile-nav"><div class="mobile-nav-inner"><div class="wrap">
+    <ul>
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="program.html">The Program</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="digital.html">Digitalisation</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+  </div></div></div>
 </header>
 
 <main>
@@ -73,50 +92,48 @@
 <section class="pg-hero">
   <div class="wrap">
     <div class="pg-crumb"><a href="index.html">Home</a> <span>/</span> Contact</div>
-    <div class="pg-hero-grid">
+    <div class="pg-hero-grid contact-hero-grid">
       <div>
         <h1 class="pg-title">Let's talk.</h1>
         <p class="lede" style="margin-top:24px;">Tell us about your situation. We will tell you honestly whether and how we can help — and what a first step might look like. No obligation, no sales pitch.</p>
-      </div>
-      <div>
-        <p style="color:var(--ink-soft);font-size:16px;max-width:44ch;">"Low commitment, high clarity. See both prizes — performance and product cost — before committing to anything."</p>
-        <div style="margin-top:24px;display:flex;flex-direction:column;gap:8px;">
-          <div style="display:flex;align-items:center;gap:12px;font-size:15px;"><span style="color:var(--terra);font-weight:700;">✓</span> Response within 48 hours</div>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:8px;"></div>
+        <div style="display:flex;align-items:center;gap:12px;font-size:15px;"><span style="color:var(--terra);font-weight:700;">✓</span> Response within 48 hours</div>
           <div style="display:flex;align-items:center;gap:12px;font-size:15px;"><span style="color:var(--terra);font-weight:700;">✓</span> No long contracts to start</div>
           <div style="display:flex;align-items:center;gap:12px;font-size:15px;"><span style="color:var(--terra);font-weight:700;">✓</span> Senior practitioner on the first call</div>
-        </div>
+      </div>
+      <div>
+        <!-- Move/resize this image via the ".contact-hero-grid" rules above -->
+        <img class="hero-art" src="assets/lighthousecontact.png" alt="Illustration of a lighthouse over a compass rose, representing guidance and a starting point">
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE SCAN -->
+<!-- WHERE TO START -->
 <section class="sec bg-2">
   <div class="wrap">
     <div class="sec-head sr">
       <div>
-        <div class="eyebrow">The starting point</div>
-        <h2 class="serif" style="margin-top:20px;">A Business Performance scan:<br>two prizes in <em>2–3 weeks</em></h2>
+        <div class="eyebrow">Where to start</div>
+        <h2 class="serif" style="margin-top:20px;">The diagnostic first —<br><em>how most engagements begin</em></h2>
       </div>
-      <p class="lede" style="align-self:end;">Before committing to a full program, start here. A short, structured diagnostic — delivered by a senior practitioner — that quantifies what is at stake.</p>
+      <p class="lede" style="align-self:end;">Organisations that come to us rarely begin by commissioning a full transformation program. They begin with a question. We offer three diagnostic entry points, run independently or combined — each fixed in scope and timeline, each a complete deliverable in itself.</p>
     </div>
-    <div class="scan-steps sr">
-      <div class="scan-step">
-        <div class="scan-n">Step 1</div>
-        <h3>A short cross-functional diagnostic</h3>
-        <p>2–3 weeks. Covering business performance and product cost as two independent lenses — not a superficial audit.</p>
+    <div class="tile-grid cols-3 sr">
+      <div class="tile">
+        <h4>Quality &amp; EHS Rapid Assessment</h4>
+        <p>2–5 days on-site plus document review. A prioritised gap map, a maturity rating, and recommended actions with effort and impact estimates.</p>
       </div>
-      <div class="scan-step">
-        <div class="scan-n">Step 2</div>
-        <h3>Two prizes, both in euros</h3>
-        <p>A quantified view of your quality losses and your product-cost opportunities — expressed in money, not percentages or ratings.</p>
+      <div class="tile">
+        <h4>Cost of Non-Quality (CoNQ) Scan</h4>
+        <p>2–3 weeks with a small cross-functional team. A financial picture of what poor quality is costing the business, and where the highest-value opportunities lie.</p>
       </div>
-      <div class="scan-step">
-        <div class="scan-n">Step 3</div>
-        <h3>A board-ready recommendation</h3>
-        <p>Where to act first, what it is worth, and how long it will take. Ready to present to your leadership with confidence.</p>
+      <div class="tile">
+        <h4>Sustainability &amp; EHS Maturity Review</h4>
+        <p>A structured assessment of strategy, EHS systems and ESG data readiness against CSRD and SBTi alignment — with a prioritised roadmap for the next 12–24 months.</p>
       </div>
     </div>
+    <p style="margin-top:28px;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-soft);" class="sr">Fixed scope and timeline. Senior-led. Honest findings — including where you are already performing well. No lock-in: every diagnostic is priced and delivered as a standalone service.</p>
   </div>
 </section>
 
@@ -151,9 +168,10 @@
             <label for="subject">What are you interested in?</label>
             <select id="subject" name="subject">
               <option value="">Please select...</option>
-              <option>Business Performance scan (2–3 weeks)</option>
+              <option>Quality &amp; EHS Rapid Assessment</option>
+              <option>Cost of Non-Quality (CoNQ) Scan</option>
+              <option>Sustainability &amp; EHS Maturity Review</option>
               <option>The full Business Transformation Program</option>
-              <option>Gap Assessment only</option>
               <option>Cost Improvement Program</option>
               <option>Digitalisation advisory</option>
               <option>Competence development &amp; training</option>
@@ -207,38 +225,42 @@
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <a class="footer-logo" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span>QUALAMANTIS</span></a>
-      <p>Business transformation, cost improvement and digitalisation for industrial companies.</p>
+      <p>Business transformation, cost improvement and digitalisation for industrial companies — with a deep specialism in rolling bearings.</p>
+      <div class="footer-social">
+        <!-- TODO: replace with the real Qualamantis LinkedIn company URL -->
+        <a class="social-icon" href="https://www.linkedin.com/company/qualamantis" target="_blank" rel="noopener" aria-label="Qualamantis on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      </div>
     </div>
-    <nav class="footer-col foot-nav" aria-label="Site">
-      <h4>Site</h4>
-      <a href="index.html">Home</a>
-      <a href="program.html">Program</a>
-      <a href="digital.html">Digitalisation</a>
+    <nav class="footer-col foot-nav" aria-label="Company">
+      <h4>Company</h4>
       <a href="about.html">About</a>
+      <a href="industries.html">Industries</a>
       <a href="partners.html">Partners</a>
       <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="footer-col foot-nav" aria-label="Services">
+      <h4>Services</h4>
+      <a href="services.html">What We Do</a>
+      <a href="program.html">The Program</a>
+      <a href="digital.html">Digitalisation</a>
     </nav>
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
       <span>Fondettes, France</span>
     </div>
-    <div class="footer-col">
-      <h4>GDPR / RGPD</h4>
-      <p>Contact messages are used only to reply to your enquiry. You can request access, correction or deletion at any time.</p>
-      <a href="contact.html">Privacy request</a>
-    </div>
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 Qualamantis · Fondettes, France</span>
-    <span class="motto">Per aspera ad astra</span>
+    <span class="footer-credit">site by Leonardo Rubatto</span>
+    <div class="footer-legal-row">
+      <a href="legal.html" style="color:var(--ink-soft);text-decoration:none;">Legal &amp; Privacy</a>
+      <span class="motto">Per aspera ad astra</span>
+    </div>
   </div>
 </footer>
 
-<script>
-  const srObs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');srObs.unobserve(e.target);}}),{threshold:.1});
-  document.querySelectorAll('.sr').forEach(el=>srObs.observe(el));
-</script>
+<script src="assets/site.js"></script>
 <script src="assets/lang.js"></script>
 </body>
 </html>

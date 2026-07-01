@@ -4,23 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Qualamantis</title>
+<meta name="description" content="Qualamantis is a global team of senior practitioners with over 30 years of hands-on industrial experience — not advisors at a distance.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/logo-q.png">
+<link rel="apple-touch-icon" href="assets/logo-q.png">
+<meta name="theme-color" content="#FAF6EF">
 <link rel="stylesheet" href="assets/shared.css">
 <style>
 /* ---- MANIFESTO ---- */
 .manifesto-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:80px; align-items:start; }
 @media(max-width:860px){ .manifesto-grid{grid-template-columns:1fr;gap:36px;} }
-.manifesto-pull {
-  font-family:var(--serif); font-style:italic; font-weight:300;
-  font-size:clamp(22px,2.3vw,30px); line-height:1.42; color:var(--ink);
-  border-left:1.5px solid var(--terra); padding-left:32px;
-}
 .manifesto-body { display:flex; flex-direction:column; gap:18px; }
 .manifesto-body p { color:var(--ink-soft); font-size:16.5px; }
 
 /* ---- TEAM ---- */
 .team-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); }
 @media(max-width:980px){ .team-grid{grid-template-columns:repeat(3,1fr);} }
-@media(max-width:620px){ .team-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:620px){
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .team-grid .member-card:last-child{ grid-column:1/-1; }
+  .team-grid .member-card:last-child .member-portrait,
+  .team-grid .member-card:last-child .member-info{ max-width:50%; margin-left:auto; margin-right:auto; }
+}
 .member-card { background:var(--paper); padding:0 0 28px; transition:background .3s; }
 .member-card:hover { background:var(--paper-2); }
 .member-portrait {
@@ -31,10 +36,10 @@
   position:relative; overflow:hidden;
 }
 .member-portrait span { font-family:var(--serif); font-style:italic; font-size:42px; color:var(--terra); opacity:.85; }
-.member-portrait i { display:none; }
+.member-portrait img { width:100%; height:100%; object-fit:cover; object-position:center top; }
 .member-info { padding:18px 20px 0; }
 .member-info b { display:block; font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:3px; }
-.member-info small { font-size:13px; color:var(--ink-soft); }
+.member-info small { font-size:13px; color:var(--ink-soft); line-height:1.5; }
 
 /* ---- WHY ---- */
 .why-cols { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hair); border:1px solid var(--hair); margin-top:44px; }
@@ -44,19 +49,6 @@
 .why-col h3 { font-family:var(--serif); font-weight:400; font-size:22px; margin-bottom:10px; display:flex; align-items:baseline; gap:12px; }
 .why-n { font-family:var(--serif); font-style:italic; font-size:32px; font-weight:200; color:var(--terra); }
 .why-col p { font-size:15.5px; color:var(--ink-soft); max-width:40ch; }
-
-/* ---- INDUSTRIES ---- */
-.ind-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--hair); margin-top:44px; }
-@media(max-width:860px){ .ind-grid{grid-template-columns:1fr 1fr;} }
-@media(max-width:520px){ .ind-grid{grid-template-columns:1fr;} }
-.ind-cell { padding:26px 24px; border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); transition:background .3s; }
-.ind-cell:hover { background:var(--paper-2); }
-.ind-cell b { display:block; font-weight:600; font-size:15.5px; margin-bottom:4px; }
-.ind-cell small { font-size:13px; color:var(--ink-soft); }
-
-/* ---- GEOGRAPHY ---- */
-.geo-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:32px; }
-.geo-tag { font-size:13.5px; font-weight:600; color:var(--ink); border:1px solid var(--hair); padding:9px 18px; letter-spacing:.04em; }
 </style>
 </head>
 <body>
@@ -65,16 +57,29 @@
   <div class="wrap nav-row">
     <a class="brand" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span class="brand-name">QUALAMANTIS</span></a>
     <ul class="nav-links">
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html">Industries</a></li>
       <li><a href="program.html">The Program</a></li>
       <li><a href="digital.html">Digitalisation</a></li>
       <li><a href="about.html" aria-current="page">About</a></li>
-      <li><a href="partners.html">Partners</a></li>
     </ul>
     <div class="nav-end">
-      <div class="lang-sw"><button class="on">EN</button><button>IT</button><button>FR</button></div>
+      <div class="lang-sw"><button class="on" data-lang="en">EN</button><button data-lang="it">IT</button><button data-lang="fr">FR</button></div>
       <a class="nav-cta" href="contact.html">Contact</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
+  <div class="mobile-nav"><div class="mobile-nav-inner"><div class="wrap">
+    <ul>
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="program.html">The Program</a></li>
+      <li><a href="about.html" aria-current="page">About</a></li>
+      <li><a href="digital.html">Digitalisation</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div></div></div>
 </header>
 
 <main>
@@ -85,10 +90,10 @@
     <div class="pg-crumb"><a href="index.html">Home</a> <span>/</span> About</div>
     <div class="pg-hero-grid">
       <div>
-        <h1 class="pg-title">We design the change —<br><em>and stay</em><br>to make it real</h1>
+        <h1 class="pg-title">Built on decades of <em>industrial practice</em></h1>
       </div>
       <div>
-        <p class="lede" style="margin-bottom:20px;">Not a one-size-fits-all model. A partnership that builds transformation into how your business runs — from the boardroom to the shop floor — and leaves the capability behind when we go.</p>
+        <p class="lede">A team of senior practitioners — not advisors at a distance. Over 30 years of hands-on experience in product and business Quality, EHS &amp; Sustainability, Procurement and Manufacturing process development, with a specialty in Heat Treatment and Grinding.</p>
       </div>
     </div>
   </div>
@@ -100,12 +105,13 @@
     <div class="manifesto-grid">
       <div class="sr">
         <div class="eyebrow">Our philosophy</div>
-        <blockquote class="manifesto-pull" style="margin-top:28px;">"Quality is not a function — it is how a company decides to run. We help organisations make that decision and act on it."</blockquote>
+        <blockquote class="pull-quote" style="margin-top:28px;">Quality begins with a mindset — a commitment to continuous improvement, a willingness to challenge the status quo, and the resilience to drive change even when it is hard.</blockquote>
+        <img src="assets/anitiquebrasssextant.png" alt="Illustration of an antique brass sextant" style="width:100%;max-width:440px;height:auto;margin-top:26px;">
       </div>
       <div class="manifesto-body sr">
-        <p>We are a global team of senior practitioners with over 30 years of hands-on expertise in product development, procurement, sustainability, quality &amp; risk management, and operational excellence. We have led quality and transformation in complex, multicultural organisations with matrix structures — and we bring that experience directly to your team.</p>
-        <p>Today, organisations must achieve more with fewer resources. The challenge is to improve business performance and reduce costs simultaneously, always aiming for top customer satisfaction. That requires strategic and hands-on support across the entire value chain — not a consultant who writes recommendations and leaves.</p>
-        <p>We don't just advise. We engage in implementing what we propose. We co-resource alongside your team. And we measure our success by the capability your people have when we are gone.</p>
+        <p>Ask ten professionals to define quality and you will hear ten different answers — perfection, consistency, reliability, compliance, customer satisfaction. We agree that all of these matter. But for us, quality begins with a mindset, not a checklist.</p>
+        <p>We have worked inside complex, multicultural, matrix organisations — leading transformations, managing crises, and building capabilities across some of the world's most demanding industries. We operate across Europe, Asia and the Americas, bringing practitioner-grade depth, not generic consulting templates.</p>
+        <p><em style="font-family:var(--serif);color:var(--terra);">Per aspera ad astra</em> — through hardship to the stars. Progress comes from confronting real problems, not from producing reports. We don't just advise — we engage in implementing what we propose. Our commitment ends when the result is embedded, not when the slide deck is delivered.</p>
       </div>
     </div>
   </div>
@@ -117,44 +123,44 @@
     <div class="sec-head sr">
       <div>
         <div class="eyebrow">The team</div>
-        <h2 class="serif" style="margin-top:20px;">Senior practitioners,<br><em>not slideware</em></h2>
+        <h2 class="serif" style="margin-top:20px;">Five specialisations,<br><em>one team</em></h2>
       </div>
-      <p class="lede" style="align-self:end;">Decades of results across complex, regulated industries — from the boardroom to the shop floor. Each practitioner brings deep domain expertise and direct implementation experience.</p>
+      <p class="lede" style="align-self:end;">The Qualamantis team combines five areas of deep specialisation, each led by a practitioner with a track record in global industrial environments.</p>
     </div>
     <div class="team-grid sr">
       <div class="member-card">
-        <div class="member-portrait"><span>SR</span></div>
+        <div class="member-portrait"><img src="assets/silvio.png" alt="Silvio Rubatto"></div>
         <div class="member-info">
           <b>Silvio Rubatto</b>
-          <small>Business Quality Executive<br>Founder, Qualamantis</small>
+          <small>Founder · Business Quality<br>Strategy, risk &amp; QMS, Zero Defect, CoNQ</small>
         </div>
       </div>
       <div class="member-card">
-        <div class="member-portrait"><span>BD</span></div>
+        <div class="member-portrait"><img src="assets/bryan.png" alt="Bryan Dodson"></div>
         <div class="member-info">
           <b>Bryan Dodson</b>
-          <small>Product Quality &amp; Reliability<br>Six Sigma &amp; DfSS</small>
+          <small>Product Quality &amp; Reliability<br>Warranty analysis, statistical methods, DFSS</small>
         </div>
       </div>
       <div class="member-card">
-        <div class="member-portrait"><span>DD</span></div>
+        <div class="member-portrait"><img src="assets/domenico.png" alt="Domenico Ducci"></div>
         <div class="member-info">
           <b>Domenico Ducci</b>
-          <small>Advanced Procurement<br>Cost Reduction Programs</small>
+          <small>Advanced Procurement<br>Supply chain optimisation &amp; supplier development</small>
         </div>
       </div>
       <div class="member-card">
-        <div class="member-portrait"><span>FZ</span></div>
+        <div class="member-portrait"><img src="assets/filippo.png" alt="Filippo Zingariello"></div>
         <div class="member-info">
           <b>Filippo Zingariello</b>
-          <small>Product Dev &amp; Technology<br>Innovation &amp; IP Strategy</small>
+          <small>Product Development &amp; Technology<br>APQP, FMEA, IP strategy, innovation</small>
         </div>
       </div>
       <div class="member-card">
-        <div class="member-portrait"><span>RJ</span></div>
+        <div class="member-portrait"><img src="assets/rob.png" alt="Rob Jenkinson"></div>
         <div class="member-info">
           <b>Rob Jenkinson</b>
-          <small>EHS &amp; Sustainability<br>ISO 14001 · 45001 · 50001</small>
+          <small>EHS &amp; Sustainability<br>Net Zero, CSRD/ESRS, ISO 14001 · 45001 · 50001</small>
         </div>
       </div>
     </div>
@@ -162,68 +168,36 @@
   </div>
 </section>
 
-<!-- WHY QUALAMANTIS -->
+<!-- OUR PROMISE -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-head sr">
       <div>
-        <div class="eyebrow">Why partner with us</div>
-        <h2 class="serif" style="margin-top:20px;">Four reasons clients<br>come back</h2>
+        <div class="eyebrow">Our promise</div>
+        <h2 class="serif" style="margin-top:20px;">Why organisations<br>choose Qualamantis</h2>
       </div>
+      <p class="lede" style="align-self:end;">There are many consulting firms. Very few have actually managed a multi-site quality transformation, designed a Zero Defect programme from scratch, or led a bearing product through a warranty crisis under regulatory scrutiny. We have done all of this — and we carry that experience into every engagement.</p>
     </div>
     <div class="why-cols sr">
       <div class="why-col">
         <h3><span class="why-n">1</span>Proven global expertise</h3>
-        <p>Decades of results across complex, regulated, multicultural industries — automotive, aerospace, rail, energy, marine and beyond. We have operated at C-suite level and on the shop floor.</p>
+        <p>Decades of results across complex, regulated industries — automotive, aerospace, rail, renewable energy, heavy machinery. We know what works in practice, not just in theory.</p>
       </div>
       <div class="why-col">
         <h3><span class="why-n">2</span>End-to-end support</h3>
-        <p>From crisis resolution and immediate containment through to long-term capability building. We can start anywhere — and take you all the way.</p>
+        <p>From diagnostic to implementation to capability building — we stay alongside clients through the full transformation arc. We do not hand over a report and leave.</p>
       </div>
       <div class="why-col">
         <h3><span class="why-n">3</span>Sustainable impact</h3>
-        <p>Solutions designed to be adopted, embedded and scaled. We build the capability in your organisation — so the change lasts when we leave.</p>
+        <p>Our solutions are designed to be adopted, embedded and scaled — not dependent on our continued presence. We build capability as we work, so improvements persist after we leave.</p>
       </div>
       <div class="why-col">
-        <h3><span class="why-n">4</span>Innovation &amp; IP</h3>
-        <p>A unique combination of quality, technical, strategic and intellectual property expertise — so your transformation generates value you can protect.</p>
+        <h3><span class="why-n">4</span>Quality + Innovation + Sustainability</h3>
+        <p>A unique blend of technical depth, strategic thinking and sustainability expertise. We help organisations not just meet today's standards — but set the standards of tomorrow.</p>
       </div>
     </div>
     <div style="border:1px solid var(--hair);padding:36px 40px;margin-top:1px;" class="sr">
-      <p style="font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.5;color:var(--ink);max-width:72ch;">"We don't just help organisations meet standards — we help them set them."</p>
-    </div>
-  </div>
-</section>
-
-<!-- INDUSTRIES & GEOGRAPHY -->
-<section class="sec bg-2">
-  <div class="wrap">
-    <div class="sec-head sr">
-      <div>
-        <div class="eyebrow">Where we operate</div>
-        <h2 class="serif" style="margin-top:20px;">Seven industries,<br>four <em>continents</em></h2>
-      </div>
-      <p class="lede" style="align-self:end;">Wherever your supply chain runs and your customers sit, we have operated there. Our network is international and our practitioners are comfortable in complex, multicultural environments.</p>
-    </div>
-    <div class="ind-grid sr">
-      <div class="ind-cell"><b>Automotive</b><small>Tier 1–3 suppliers, OEMs, IATF 16949</small></div>
-      <div class="ind-cell"><b>Aerospace</b><small>AS9100, Primes &amp; Tier 1, MRO</small></div>
-      <div class="ind-cell"><b>Rail</b><small>IRIS, rolling stock &amp; infrastructure</small></div>
-      <div class="ind-cell"><b>Renewable Energy</b><small>Wind, solar, hydrogen supply chains</small></div>
-      <div class="ind-cell"><b>Off-Highway</b><small>Construction, mining &amp; agricultural equipment</small></div>
-      <div class="ind-cell"><b>Marine &amp; Maritime</b><small>Shipbuilding, offshore &amp; port equipment</small></div>
-      <div class="ind-cell"><b>Heavy Industries</b><small>Oil &amp; gas, power generation, metallurgy</small></div>
-      <div class="ind-cell" style="background:var(--paper-2);"><b>Innovation &amp; IP</b><small>Cross-industry patent, trademark &amp; copyright strategy</small></div>
-    </div>
-    <div class="sr" style="margin-top:48px;">
-      <div class="eyebrow bare" style="margin-bottom:16px;">Geographic reach</div>
-      <div class="geo-row">
-        <div class="geo-tag">Europe</div>
-        <div class="geo-tag">Americas</div>
-        <div class="geo-tag">Middle East &amp; North Africa</div>
-        <div class="geo-tag">Türkiye</div>
-        <div class="geo-tag">Asia-Pacific</div>
-      </div>
+      <p style="font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.5;color:var(--ink);max-width:72ch;">"We don't help organisations comply. We help them compete."</p>
     </div>
   </div>
 </section>
@@ -233,8 +207,8 @@
   <img class="cta-q-bg" src="assets/logo-q-cream.png" alt="">
   <div class="wrap" style="position:relative;">
     <div class="eyebrow sr">Get in touch</div>
-    <h2 class="serif sr" style="max-width:22ch;margin:22px auto 16px;">Start a conversation</h2>
-    <p class="lede sr" style="margin:0 auto;max-width:48ch;">Tell us about your situation. We will tell you honestly whether and how we can help — and what a first engagement might look like.</p>
+    <h2 class="serif sr">Start a conversation</h2>
+    <p class="lede sr">Tell us about your situation. We will tell you honestly whether and how we can help — and what a first engagement might look like.</p>
     <div class="btn-group sr" style="justify-content:center;margin-top:36px;">
       <a class="btn-fill light" href="contact.html">Contact us</a>
       <a class="btn-line light" href="partners.html">Our partners</a>
@@ -248,38 +222,42 @@
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <a class="footer-logo" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span>QUALAMANTIS</span></a>
-      <p>Business transformation, cost improvement and digitalisation for industrial companies.</p>
+      <p>Business transformation, cost improvement and digitalisation for industrial companies — with a deep specialism in rolling bearings.</p>
+      <div class="footer-social">
+        <!-- TODO: replace with the real Qualamantis LinkedIn company URL -->
+        <a class="social-icon" href="https://www.linkedin.com/company/qualamantis" target="_blank" rel="noopener" aria-label="Qualamantis on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      </div>
     </div>
-    <nav class="footer-col foot-nav" aria-label="Site">
-      <h4>Site</h4>
-      <a href="index.html">Home</a>
-      <a href="program.html">Program</a>
-      <a href="digital.html">Digitalisation</a>
+    <nav class="footer-col foot-nav" aria-label="Company">
+      <h4>Company</h4>
       <a href="about.html">About</a>
+      <a href="industries.html">Industries</a>
       <a href="partners.html">Partners</a>
       <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="footer-col foot-nav" aria-label="Services">
+      <h4>Services</h4>
+      <a href="services.html">What We Do</a>
+      <a href="program.html">The Program</a>
+      <a href="digital.html">Digitalisation</a>
     </nav>
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
       <span>Fondettes, France</span>
     </div>
-    <div class="footer-col">
-      <h4>GDPR / RGPD</h4>
-      <p>Contact messages are used only to reply to your enquiry. You can request access, correction or deletion at any time.</p>
-      <a href="contact.html">Privacy request</a>
-    </div>
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 Qualamantis · Fondettes, France</span>
-    <span class="motto">Per aspera ad astra</span>
+    <span class="footer-credit">site by Leonardo Rubatto</span>
+    <div class="footer-legal-row">
+      <a href="legal.html" style="color:var(--ink-soft);text-decoration:none;">Legal &amp; Privacy</a>
+      <span class="motto">Per aspera ad astra</span>
+    </div>
   </div>
 </footer>
 
-<script>
-  const srObs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');srObs.unobserve(e.target);}}),{threshold:.1});
-  document.querySelectorAll('.sr').forEach(el=>srObs.observe(el));
-</script>
+<script src="assets/site.js"></script>
 <script src="assets/lang.js"></script>
 </body>
 </html>
