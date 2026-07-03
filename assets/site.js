@@ -54,4 +54,40 @@
   // Hero entrance (index only)
   window.addEventListener('load', () => document.body.classList.add('loaded'));
   setTimeout(() => document.body.classList.add('loaded'), 600);
+
+  // Contact form (AJAX submit via Formspree, progressive enhancement)
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  if (form && status) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      status.style.display = 'block';
+      status.style.color = 'var(--ink-soft)';
+      status.textContent = 'Sending…';
+      const submitBtn = form.querySelector('.form-submit');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      })
+        .then((res) => {
+          if (res.ok) {
+            form.reset();
+            status.style.color = 'var(--terra)';
+            status.textContent = 'Thank you — your message has been sent. We will respond within 48 hours.';
+          } else {
+            throw new Error('Submission failed');
+          }
+        })
+        .catch(() => {
+          status.style.color = '#b3261e';
+          status.textContent = 'Something went wrong sending this form. Please email us directly at qualamantis@gmail.com instead.';
+        })
+        .finally(() => {
+          if (submitBtn) submitBtn.disabled = false;
+        });
+    });
+  }
 })();

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi siamo — Qualamantis</title>
+<meta name="description" content="Qualamantis è un team internazionale di professionisti senior con oltre 30 anni di esperienza industriale sul campo — non consulenti a distanza.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../assets/logo-q.png">
+<link rel="apple-touch-icon" href="../assets/logo-q.png">
+<meta name="theme-color" content="#FAF6EF">
+<link rel="canonical" href="https://qualamantis.com/it/about.html">
+<link rel="alternate" hreflang="en" href="https://qualamantis.com/about.html">
+<link rel="alternate" hreflang="it" href="https://qualamantis.com/it/about.html">
+<link rel="alternate" hreflang="fr" href="https://qualamantis.com/fr/about.html">
+<link rel="alternate" hreflang="x-default" href="https://qualamantis.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Qualamantis">
+<meta property="og:title" content="Chi siamo — Qualamantis">
+<meta property="og:description" content="Qualamantis è un team internazionale di professionisti senior con oltre 30 anni di esperienza industriale sul campo — non consulenti a distanza.">
+<meta property="og:url" content="https://qualamantis.com/it/about.html">
+<meta property="og:image" content="https://qualamantis.com/assets/qualamantis-og-image.png">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chi siamo — Qualamantis">
+<meta name="twitter:description" content="Qualamantis è un team internazionale di professionisti senior con oltre 30 anni di esperienza industriale sul campo — non consulenti a distanza.">
+<meta name="twitter:image" content="https://qualamantis.com/assets/qualamantis-og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://qualamantis.com/it/" },
+    { "@type": "ListItem", "position": 2, "name": "Chi siamo", "item": "https://qualamantis.com/it/about.html" }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../assets/shared.css">
+<style>
+/* ---- MANIFESTO ---- */
+.manifesto-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:80px; align-items:start; }
+@media(max-width:860px){ .manifesto-grid{grid-template-columns:1fr;gap:36px;} }
+.manifesto-body { display:flex; flex-direction:column; gap:18px; }
+.manifesto-body p { color:var(--ink-soft); font-size:16.5px; }
+
+/* ---- TEAM ---- */
+.team-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); }
+@media(max-width:980px){ .team-grid{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:620px){
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .team-grid .member-card:last-child{ grid-column:1/-1; }
+  .team-grid .member-card:last-child .member-portrait,
+  .team-grid .member-card:last-child .member-info{ max-width:50%; margin-left:auto; margin-right:auto; }
+}
+.member-card { background:var(--paper); padding:0 0 28px; transition:background .3s; }
+.member-card:hover { background:var(--paper-2); }
+.member-portrait {
+  aspect-ratio:3/4; width:100%; margin:0;
+  background:repeating-linear-gradient(-45deg,var(--paper-2) 0 9px,#ECE3D3 9px 18px);
+  border-bottom:1px solid var(--hair);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.member-portrait span { font-family:var(--serif); font-style:italic; font-size:42px; color:var(--terra); opacity:.85; }
+.member-portrait img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+.member-info { padding:18px 20px 0; }
+.member-info b { display:block; font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:3px; }
+.member-info small { font-size:13px; color:var(--ink-soft); line-height:1.5; }
+
+/* ---- WHY ---- */
+.why-cols { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hair); border:1px solid var(--hair); margin-top:44px; }
+@media(max-width:720px){ .why-cols{grid-template-columns:1fr;} }
+.why-col { background:var(--paper); padding:40px 36px; transition:background .3s; }
+.why-col:hover { background:var(--paper-2); }
+.why-col h3 { font-family:var(--serif); font-weight:400; font-size:22px; margin-bottom:10px; display:flex; align-items:baseline; gap:12px; }
+.why-n { font-family:var(--serif); font-style:italic; font-size:32px; font-weight:200; color:var(--terra); }
+.why-col p { font-size:15.5px; color:var(--ink-soft); max-width:40ch; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html"><img src="../assets/logo-q.png" alt="Qualamantis"><span class="brand-name">QUALAMANTIS</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Cosa facciamo</a></li>
+      <li><a href="industries.html">Settori</a></li>
+      <li><a href="program.html">Il programma</a></li>
+      <li><a href="digital.html">Digitalizzazione</a></li>
+      <li><a href="about.html" aria-current="page">Chi siamo</a></li>
+    </ul>
+    <div class="nav-end">
+      <div class="lang-sw"><a href="../about.html">EN</a><a class="on" href="about.html">IT</a><a href="../fr/about.html">FR</a></div>
+      <a class="nav-cta" href="contact.html">Contatto</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav"><div class="mobile-nav-inner"><div class="wrap">
+    <ul>
+      <li><a href="services.html">Cosa facciamo</a></li>
+      <li><a href="industries.html">Settori</a></li>
+      <li><a href="program.html">Il programma</a></li>
+      <li><a href="about.html" aria-current="page">Chi siamo</a></li>
+      <li><a href="digital.html">Digitalizzazione</a></li>
+      <li><a href="partners.html">Partner</a></li>
+      <li><a href="contact.html">Contatto</a></li>
+    </ul>
+    <div class="lang-sw"><a href="../about.html">EN</a><a class="on" href="about.html">IT</a><a href="../fr/about.html">FR</a></div>
+  </div></div></div>
+</header>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="pg-hero">
+  <div class="wrap">
+    <div class="pg-crumb"><a href="index.html">Home</a> <span>/</span> Chi siamo</div>
+    <div class="pg-hero-grid">
+      <div>
+        <h1 class="pg-title">Costruita su decenni di <em>pratica industriale</em></h1>
+      </div>
+      <div>
+        <p class="lede">Un team di professionisti senior — non consulenti a distanza. Oltre 30 anni di esperienza pratica in Qualità di prodotto e aziendale, EHS &amp; Sostenibilità, Procurement e sviluppo dei processi produttivi, con specialità in Trattamento Termico e Rettifica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="sec">
+  <div class="wrap">
+    <div class="manifesto-grid">
+      <div class="sr">
+        <div class="eyebrow">La nostra filosofia</div>
+        <blockquote class="pull-quote" style="margin-top:28px;">La qualità comincia con una mentalità — un impegno al miglioramento continuo, la volontà di sfidare lo status quo, e la resilienza per guidare il cambiamento anche quando è difficile.</blockquote>
+        <img src="../assets/anitiquebrasssextant.png" alt="Illustration of an antique brass sextant" style="width:100%;max-width:440px;height:auto;margin-top:26px;">
+      </div>
+      <div class="manifesto-body sr">
+        <p>Chiedete a dieci professionisti di definire la qualità e sentirete dieci risposte diverse — perfezione, coerenza, affidabilità, conformità, soddisfazione del cliente. Concordiamo sul fatto che contano tutte. Ma per noi la qualità comincia con una mentalità, non con una checklist.</p>
+        <p>Abbiamo lavorato in organizzazioni complesse, multiculturali, a matrice — guidando trasformazioni, gestendo crisi e costruendo competenze nelle industrie più esigenti al mondo. Operiamo in Europa, Asia e Americhe, portando una profondità da professionisti sul campo, non modelli di consulenza generici.</p>
+        <p><em style="font-family:var(--serif);color:var(--terra);">Per aspera ad astra</em> — attraverso le asperità verso le stelle. Il progresso nasce dall'affrontare problemi reali, non dal produrre report. Non ci limitiamo a consigliare — ci impegniamo a implementare ciò che proponiamo. Il nostro impegno finisce quando il risultato è radicato, non quando consegniamo la presentazione.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec bg-2">
+  <div class="wrap">
+    <div class="sec-head sr">
+      <div>
+        <div class="eyebrow">Il team</div>
+        <h2 class="serif" style="margin-top:20px;">Cinque specializzazioni,<br><em>un solo team</em></h2>
+      </div>
+      <p class="lede" style="align-self:end;">Il team Qualamantis combina cinque aree di profonda specializzazione, ciascuna guidata da un professionista con un track record in contesti industriali globali.</p>
+    </div>
+    <div class="team-grid sr">
+      <div class="member-card">
+        <div class="member-portrait"><img src="../assets/silvio.png" alt="Silvio Rubatto"></div>
+        <div class="member-info">
+          <b>Silvio Rubatto</b>
+          <small>Fondatore · Business Quality<br>Strategia, rischio &amp; QMS, Zero Difetti, CoNQ</small>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-portrait"><img src="../assets/bryan.png" alt="Bryan Dodson"></div>
+        <div class="member-info">
+          <b>Bryan Dodson</b>
+          <small>Qualità prodotto e affidabilità<br>Analisi delle garanzie, metodi statistici, DFSS</small>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-portrait"><img src="../assets/domenico.png" alt="Domenico Ducci"></div>
+        <div class="member-info">
+          <b>Domenico Ducci</b>
+          <small>Procurement avanzato<br>Ottimizzazione supply chain &amp; sviluppo fornitori</small>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-portrait"><img src="../assets/filippo.png" alt="Filippo Zingariello"></div>
+        <div class="member-info">
+          <b>Filippo Zingariello</b>
+          <small>Sviluppo Prodotto &amp; Tecnologia<br>APQP, FMEA, strategia IP, innovazione</small>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-portrait"><img src="../assets/rob.png" alt="Rob Jenkinson"></div>
+        <div class="member-info">
+          <b>Rob Jenkinson</b>
+          <small>EHS e sostenibilità<br>Net Zero, CSRD/ESRS, ISO 14001 · 45001 · 50001</small>
+        </div>
+      </div>
+    </div>
+    <p style="font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-soft);margin-top:28px;" class="sr">Ogni incarico attinge all'intera rete: la competenza giusta, nel momento giusto, nel luogo giusto.</p>
+  </div>
+</section>
+
+<!-- OUR PROMISE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head sr">
+      <div>
+        <div class="eyebrow">La nostra promessa</div>
+        <h2 class="serif" style="margin-top:20px;">Perché le organizzazioni<br>scelgono Qualamantis</h2>
+      </div>
+      <p class="lede" style="align-self:end;">Ci sono molte società di consulenza. Pochissime hanno davvero gestito una trasformazione qualità multi-sito, progettato un programma Zero Difetti da zero, o guidato un prodotto cuscinetto attraverso una crisi di garanzia sotto controllo regolatorio. Noi lo abbiamo fatto — e portiamo quell'esperienza in ogni incarico.</p>
+    </div>
+    <div class="why-cols sr">
+      <div class="why-col">
+        <h3><span class="why-n">1</span>Esperienza globale comprovata</h3>
+        <p>Decenni di risultati in settori complessi e regolamentati — automotive, aerospaziale, ferroviario, energie rinnovabili, macchinari pesanti. Sappiamo cosa funziona nella pratica, non solo in teoria.</p>
+      </div>
+      <div class="why-col">
+        <h3><span class="why-n">2</span>Supporto end-to-end</h3>
+        <p>Dalla diagnosi all'implementazione allo sviluppo di competenze — restiamo accanto ai clienti per l'intero arco della trasformazione. Non consegniamo un report e ce ne andiamo.</p>
+      </div>
+      <div class="why-col">
+        <h3><span class="why-n">3</span>Impatto sostenibile</h3>
+        <p>Le nostre soluzioni sono progettate per essere adottate, radicate e scalate — non dipendenti dalla nostra presenza continua. Costruiamo competenze mentre lavoriamo, così i miglioramenti durano dopo che ce ne siamo andati.</p>
+      </div>
+      <div class="why-col">
+        <h3><span class="why-n">4</span>Qualità + Innovazione + Sostenibilità</h3>
+        <p>Una combinazione unica di profondità tecnica, pensiero strategico ed esperienza in sostenibilità. Aiutiamo le organizzazioni non solo a soddisfare gli standard di oggi, ma a definire quelli di domani.</p>
+      </div>
+    </div>
+    <div style="border:1px solid var(--hair);padding:36px 40px;margin-top:1px;" class="sr">
+      <p style="font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.5;color:var(--ink);max-width:72ch;">"Non aiutiamo le organizzazioni a essere conformi. Le aiutiamo a competere."</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec bg-ink cta-band">
+  <img class="cta-q-bg" src="../assets/logo-q-cream.png" alt="">
+  <div class="wrap" style="position:relative;">
+    <div class="eyebrow sr">Contattateci</div>
+    <h2 class="serif sr">Avviate una conversazione</h2>
+    <p class="lede sr">Raccontateci la vostra situazione. Vi diremo con onestà se e come possiamo aiutare, e come potrebbe essere un primo incarico.</p>
+    <div class="btn-group sr" style="justify-content:center;margin-top:36px;">
+      <a class="btn-fill light" href="contact.html">Contattateci</a>
+      <a class="btn-line light" href="partners.html">I nostri partner</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="footer-logo" href="index.html"><img src="../assets/logo-q.png" alt="Qualamantis"><span>QUALAMANTIS</span></a>
+      <p>Trasformazione aziendale, miglioramento dei costi e digitalizzazione per aziende industriali — con una profonda specializzazione nei cuscinetti volventi.</p>
+      <div class="footer-social">
+        <a class="social-icon" href="https://www.linkedin.com/company/qualamantis" target="_blank" rel="noopener" aria-label="Qualamantis on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      </div>
+    </div>
+    <nav class="footer-col foot-nav" aria-label="Company">
+      <h4>Azienda</h4>
+      <a href="about.html">Chi siamo</a>
+      <a href="industries.html">Settori</a>
+      <a href="partners.html">Partner</a>
+      <a href="contact.html">Contatto</a>
+    </nav>
+    <nav class="footer-col foot-nav" aria-label="Services">
+      <h4>Servizi</h4>
+      <a href="services.html">Cosa facciamo</a>
+      <a href="program.html">Il programma</a>
+      <a href="digital.html">Digitalizzazione</a>
+    </nav>
+    <div class="footer-col">
+      <h4>Contatto</h4>
+      <a href="mailto:silvio.rubatto@qualamantis.com">silvio.rubatto@qualamantis.com</a>
+      <a href="tel:+33643534906">+33 6 43 53 49 06</a>
+      <span>10 Ter, Rue du Carroi Vau<br>37230 Fondettes, Francia</span>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Qualamantis · Fondettes, Francia</span>
+    <span class="footer-credit">site by Leonardo Rubatto</span>
+    <div class="footer-legal-row">
+      <a href="legal.html" style="color:var(--ink-soft);text-decoration:none;">Note legali e privacy</a>
+      <span class="motto">Per aspera ad astra</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>

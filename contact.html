@@ -9,6 +9,32 @@
 <link rel="alternate icon" href="assets/logo-q.png">
 <link rel="apple-touch-icon" href="assets/logo-q.png">
 <meta name="theme-color" content="#FAF6EF">
+<link rel="canonical" href="https://qualamantis.com/contact.html">
+<link rel="alternate" hreflang="en" href="https://qualamantis.com/contact.html">
+<link rel="alternate" hreflang="it" href="https://qualamantis.com/it/contact.html">
+<link rel="alternate" hreflang="fr" href="https://qualamantis.com/fr/contact.html">
+<link rel="alternate" hreflang="x-default" href="https://qualamantis.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Qualamantis">
+<meta property="og:title" content="Contact — Qualamantis">
+<meta property="og:description" content="Start with a short, structured diagnostic — Quality & EHS Rapid Assessment, CoNQ Scan, or Sustainability & EHS Maturity Review. No obligation, no sales pitch.">
+<meta property="og:url" content="https://qualamantis.com/contact.html">
+<meta property="og:image" content="https://qualamantis.com/assets/qualamantis-og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact — Qualamantis">
+<meta name="twitter:description" content="Start with a short, structured diagnostic — Quality & EHS Rapid Assessment, CoNQ Scan, or Sustainability & EHS Maturity Review. No obligation, no sales pitch.">
+<meta name="twitter:image" content="https://qualamantis.com/assets/qualamantis-og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://qualamantis.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://qualamantis.com/contact.html" }
+  ]
+}
+</script>
 <link rel="stylesheet" href="assets/shared.css">
 <style>
 /* ---- FORM ---- */
@@ -68,7 +94,7 @@
       <li><a href="about.html">About</a></li>
     </ul>
     <div class="nav-end">
-      <div class="lang-sw"><button class="on" data-lang="en">EN</button><button data-lang="it">IT</button><button data-lang="fr">FR</button></div>
+      <div class="lang-sw"><a class="on" href="contact.html">EN</a><a href="it/contact.html">IT</a><a href="fr/contact.html">FR</a></div>
       <a class="nav-cta" href="contact.html" aria-current="page">Contact</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
@@ -83,6 +109,7 @@
       <li><a href="partners.html">Partners</a></li>
       <li><a href="contact.html" aria-current="page">Contact</a></li>
     </ul>
+    <div class="lang-sw"><a class="on" href="contact.html">EN</a><a href="it/contact.html">IT</a><a href="fr/contact.html">FR</a></div>
   </div></div></div>
 </header>
 
@@ -143,7 +170,18 @@
     <div class="contact-layout">
       <div>
         <div class="eyebrow sr" style="margin-bottom:36px;">Send us a message</div>
-        <form class="form-wrap sr" action="mailto:qualamantis@gmail.com" method="get" enctype="text/plain">
+        <!--
+          FORM SETUP: this form posts to Formspree (https://formspree.io).
+          1. Create a free account at formspree.io and create a new form.
+          2. Replace YOUR_FORM_ID below with the endpoint id Formspree gives you
+             (the form action becomes https://formspree.io/f/xxxxxxxx).
+          3. Set the form's "Recipient" in the Formspree dashboard to silvio.rubatto@qualamantis.com.
+          Until YOUR_FORM_ID is replaced, submissions will fail and show the error message,
+          which also points visitors to the mailto fallback below.
+        -->
+        <form class="form-wrap sr" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="New enquiry from qualamantis.com">
           <div class="form-row">
             <div class="field">
               <label for="fname">First name</label>
@@ -185,18 +223,23 @@
             <textarea id="message" name="message" placeholder="Briefly describe your industry, the challenge you are facing, and what outcome you are hoping for. No need to be exhaustive — this is a starting point."></textarea>
           </div>
           <button class="form-submit" type="submit">Send message</button>
-          <p class="form-note">Or email directly: <a href="mailto:qualamantis@gmail.com" style="color:var(--terra);">qualamantis@gmail.com</a></p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" style="display:none;margin-top:14px;font-size:14px;"></p>
+          <p class="form-note">Or email directly: <a href="mailto:silvio.rubatto@qualamantis.com" style="color:var(--terra);">silvio.rubatto@qualamantis.com</a></p>
         </form>
       </div>
       <div class="direct sr d1" style="padding-top:52px;">
         <div class="direct-item">
           <div class="direct-label">Email</div>
-          <div class="direct-val"><a href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a></div>
+          <div class="direct-val"><a href="mailto:silvio.rubatto@qualamantis.com">silvio.rubatto@qualamantis.com</a></div>
           <div class="direct-note">For all enquiries. We respond within 48 hours.</div>
         </div>
         <div class="direct-item">
+          <div class="direct-label">Phone</div>
+          <div class="direct-val"><a href="tel:+33643534906">+33 6 43 53 49 06</a></div>
+        </div>
+        <div class="direct-item">
           <div class="direct-label">Location</div>
-          <div class="direct-val">Fondettes, France</div>
+          <div class="direct-val" style="font-size:17px;">10 Ter, Rue du Carroi Vau<br>37230 Fondettes, France</div>
           <div class="direct-note">We operate across Europe, Americas, MENA and Asia-Pacific.</div>
         </div>
         <div class="direct-item">
@@ -227,7 +270,6 @@
       <a class="footer-logo" href="index.html"><img src="assets/logo-q.png" alt="Qualamantis"><span>QUALAMANTIS</span></a>
       <p>Business transformation, cost improvement and digitalisation for industrial companies — with a deep specialism in rolling bearings.</p>
       <div class="footer-social">
-        <!-- TODO: replace with the real Qualamantis LinkedIn company URL -->
         <a class="social-icon" href="https://www.linkedin.com/company/qualamantis" target="_blank" rel="noopener" aria-label="Qualamantis on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
       </div>
     </div>
@@ -246,8 +288,9 @@
     </nav>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="mailto:qualamantis@gmail.com">qualamantis@gmail.com</a>
-      <span>Fondettes, France</span>
+      <a href="mailto:silvio.rubatto@qualamantis.com">silvio.rubatto@qualamantis.com</a>
+      <a href="tel:+33643534906">+33 6 43 53 49 06</a>
+      <span>10 Ter, Rue du Carroi Vau<br>37230 Fondettes, France</span>
     </div>
   </div>
   <div class="wrap footer-bottom">
@@ -261,6 +304,5 @@
 </footer>
 
 <script src="assets/site.js"></script>
-<script src="assets/lang.js"></script>
 </body>
 </html>
