@@ -187,7 +187,9 @@ h1.pg-title em { font-style:italic; color:var(--terra); }
 .mobile-nav ul { display:flex; flex-direction:column; padding:8px 0 20px; }
 .mobile-nav a { display:block; padding:14px 0; font-size:16px; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--hair); }
 .mobile-nav a[aria-current="page"] { color:var(--terra); }
-.mobile-nav .lang-sw { margin:18px 0 0; align-self:flex-start; }
+.mobile-nav .lang-sw { margin:18px 0 0; width:fit-content; display:flex; border:1px solid var(--hair); border-radius:99px; padding:3px; gap:2px; }
+.mobile-nav .lang-sw a { display:inline-block; padding:6px 14px; font-size:12px; font-weight:600; letter-spacing:.08em; color:var(--ink-soft); border:0; border-radius:99px; }
+.mobile-nav .lang-sw a.on { background:var(--ink); color:var(--paper); }
 
 /* ---- Tile grid (generic hairline card grid) ---- */
 .tile-grid { display:grid; gap:1px; background:var(--hair); border:1px solid var(--hair); }

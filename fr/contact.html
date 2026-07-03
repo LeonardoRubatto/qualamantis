@@ -170,18 +170,11 @@
     <div class="contact-layout">
       <div>
         <div class="eyebrow sr" style="margin-bottom:36px;">Envoyez-nous un message</div>
-        <!--
-          FORM SETUP: this form posts to Formspree (https://formspree.io).
-          1. Create a free account at formspree.io and create a new form.
-          2. Replace YOUR_FORM_ID below with the endpoint id Formspree gives you
-             (the form action becomes https://formspree.io/f/xxxxxxxx).
-          3. Set the form's "Recipient" in the Formspree dashboard to silvio.rubatto@qualamantis.com.
-          Until YOUR_FORM_ID is replaced, submissions will fail and show the error message,
-          which also points visitors to the mailto fallback below.
-        -->
-        <form class="form-wrap sr" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="_subject" value="New enquiry from qualamantis.com">
+        <!-- This form posts to Web3Forms (https://web3forms.com), tied to silvio.rubatto@qualamantis.com. -->
+        <form class="form-wrap sr" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="7ee03dc7-28ea-4411-8217-683947a3bf2b">
+          <input type="hidden" name="subject" value="New enquiry from qualamantis.com">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="field">
               <label for="fname">Prénom</label>

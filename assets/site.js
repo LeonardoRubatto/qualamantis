@@ -72,8 +72,9 @@
         body: new FormData(form),
         headers: { Accept: 'application/json' },
       })
-        .then((res) => {
-          if (res.ok) {
+        .then((res) => res.json().catch(() => ({})).then((data) => ({ ok: res.ok, data })))
+        .then(({ ok, data }) => {
+          if (ok && data.success !== false) {
             form.reset();
             status.style.color = 'var(--terra)';
             status.textContent = 'Thank you — your message has been sent. We will respond within 48 hours.';
@@ -83,7 +84,7 @@
         })
         .catch(() => {
           status.style.color = '#b3261e';
-          status.textContent = 'Something went wrong sending this form. Please email us directly at qualamantis@gmail.com instead.';
+          status.textContent = 'Something went wrong sending this form. Please email us directly at silvio.rubatto@qualamantis.com instead.';
         })
         .finally(() => {
           if (submitBtn) submitBtn.disabled = false;
