@@ -35,6 +35,21 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://qualamantis.com/#organization",
+  "name": "Qualamantis",
+  "employee": [
+    { "@type": "Person", "name": "Silvio Rubatto", "jobTitle": "Founder · Business Quality", "worksFor": { "@id": "https://qualamantis.com/#organization" }, "sameAs": ["https://www.linkedin.com/in/silvio-rubatto-90619a11/"] },
+    { "@type": "Person", "name": "Domenico Ducci", "jobTitle": "Advanced Procurement", "worksFor": { "@id": "https://qualamantis.com/#organization" } },
+    { "@type": "Person", "name": "Rob Jenkinson", "jobTitle": "EHS & Sustainability", "worksFor": { "@id": "https://qualamantis.com/#organization" } },
+    { "@type": "Person", "name": "Giorgio Martinat", "jobTitle": "Material Expert", "worksFor": { "@id": "https://qualamantis.com/#organization" } },
+    { "@type": "Person", "name": "Bryan Dodson", "jobTitle": "Product Quality & Reliability", "worksFor": { "@id": "https://qualamantis.com/#organization" }, "sameAs": ["https://www.linkedin.com/in/bryan-dodson-01a0541/"] }
+  ]
+}
+</script>
 <link rel="stylesheet" href="/assets/shared.css">
 <style>
 /* ---- MANIFESTO ---- */
@@ -52,7 +67,7 @@
   .team-grid .member-card:last-child .member-portrait,
   .team-grid .member-card:last-child .member-info{ max-width:50%; margin-left:auto; margin-right:auto; }
 }
-.member-card { background:var(--paper); padding:0 0 28px; transition:background .3s; }
+.member-card { background:var(--paper); padding:0 0 28px; transition:background .3s; cursor:pointer; }
 .member-card:hover { background:var(--paper-2); }
 .member-portrait {
   aspect-ratio:3/4; width:100%; margin:0;
@@ -64,8 +79,27 @@
 .member-portrait span { font-family:var(--serif); font-style:italic; font-size:42px; color:var(--terra); opacity:.85; }
 .member-portrait img { width:100%; height:100%; object-fit:cover; object-position:center top; }
 .member-info { padding:18px 20px 0; }
-.member-info b { display:block; font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:3px; }
+.member-info b { display:block; font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:3px; transition:color .2s; }
+.member-card:hover .member-info b { color:var(--terra); }
 .member-info small { font-size:13px; color:var(--ink-soft); line-height:1.5; }
+
+/* ---- TEAM PROFILES (accordion) ---- */
+.team-accordion { border-top:1px solid var(--hair); margin-top:52px; }
+.team-accordion .acc-thumb { width:48px; height:48px; border-radius:50%; overflow:hidden; flex-shrink:0; background:var(--paper-2); }
+.team-accordion .acc-thumb img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+.team-accordion .acc-title { display:flex; flex-direction:column; gap:3px; }
+.team-accordion .acc-title small { font-family:var(--sans); font-size:13px; font-weight:400; color:var(--ink-soft); }
+.acc-title-row { display:flex; align-items:center; gap:9px; }
+.member-linkedin { width:22px; height:22px; border:1px solid var(--hair); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:var(--ink-soft); transition:color .2s, border-color .2s; flex-shrink:0; }
+.member-linkedin:hover { color:var(--terra); border-color:var(--terra); }
+.member-linkedin svg { width:11px; height:11px; fill:currentColor; }
+.team-accordion .acc-body .member-detail-body { padding-bottom:28px; }
+.member-bio { color:var(--ink-soft); font-size:15px; line-height:1.65; max-width:92ch; margin-bottom:24px; }
+.member-cols { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+@media(max-width:860px){ .member-cols{grid-template-columns:1fr; gap:24px;} }
+.member-cols h5 { font-family:var(--serif); font-weight:500; font-size:12.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--terra); margin-bottom:12px; }
+.member-cols .dlist { gap:11px; }
+.member-cols .dlist li { font-size:14.5px; }
 
 /* ---- WHY ---- */
 .why-cols { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hair); border:1px solid var(--hair); margin-top:44px; }
@@ -152,46 +186,218 @@
         <div class="eyebrow">L'équipe</div>
         <h2 class="serif" style="margin-top:20px;">Cinq spécialisations,<br><em>une seule équipe</em></h2>
       </div>
-      <p class="lede" style="align-self:end;">L'équipe Qualamantis combine cinq domaines de spécialisation approfondie, chacun dirigé par un praticien ayant fait ses preuves dans des environnements industriels mondiaux.</p>
+      <p class="lede" style="align-self:end;">L'équipe Qualamantis combine cinq domaines de spécialisation approfondie, chacun dirigé par un praticien ayant fait ses preuves dans des environnements industriels mondiaux. Cliquez sur un nom pour le profil complet.</p>
     </div>
-    <div class="team-grid sr">
-      <div class="member-card">
+    <div class="team-grid sr" id="team">
+
+      <div class="member-card" data-member="silvio-rubatto">
         <div class="member-portrait"><img src="/assets/silvio.webp" alt="Silvio Rubatto"></div>
         <div class="member-info">
           <b>Silvio Rubatto</b>
           <small>Fondateur · Business Quality<br>Stratégie, risque &amp; QMS, Zéro Défaut, CoNQ</small>
         </div>
       </div>
-      <div class="member-card">
-        <div class="member-portrait"><img src="/assets/bryan.webp" alt="Bryan Dodson"></div>
-        <div class="member-info">
-          <b>Bryan Dodson</b>
-          <small>Qualité produit et fiabilité<br>Analyse des garanties, méthodes statistiques, DFSS</small>
-        </div>
-      </div>
-      <div class="member-card">
+
+      <div class="member-card" data-member="domenico-ducci">
         <div class="member-portrait"><img src="/assets/domenico.webp" alt="Domenico Ducci"></div>
         <div class="member-info">
           <b>Domenico Ducci</b>
           <small>Achats avancés<br>Optimisation de la chaîne d'approvisionnement &amp; développement fournisseurs</small>
         </div>
       </div>
-      <div class="member-card">
-        <div class="member-portrait"><img src="/assets/filippo.webp" alt="Filippo Zingariello"></div>
-        <div class="member-info">
-          <b>Filippo Zingariello</b>
-          <small>Développement Produit &amp; Technologie<br>APQP, FMEA, stratégie de PI, innovation</small>
-        </div>
-      </div>
-      <div class="member-card">
+
+      <div class="member-card" data-member="rob-jenkinson">
         <div class="member-portrait"><img src="/assets/rob.webp" alt="Rob Jenkinson"></div>
         <div class="member-info">
           <b>Rob Jenkinson</b>
           <small>EHS et durabilité<br>Net Zero, CSRD/ESRS, ISO 14001 · 45001 · 50001</small>
         </div>
       </div>
+
+      <div class="member-card" data-member="giorgio-martinat">
+        <div class="member-portrait"><img src="/assets/martinat.webp" alt="Giorgio Martinat"></div>
+        <div class="member-info">
+          <b>Giorgio Martinat</b>
+          <small>Expert matériaux<br>Métallurgie, traitement thermique &amp; acier à roulements</small>
+        </div>
+      </div>
+
+      <div class="member-card" data-member="bryan-dodson">
+        <div class="member-portrait"><img src="/assets/bryan.webp" alt="Bryan Dodson"></div>
+        <div class="member-info">
+          <b>Bryan Dodson</b>
+          <small>Qualité produit et fiabilité<br>Analyse des garanties, méthodes statistiques, DFSS</small>
+        </div>
+      </div>
+
     </div>
     <p style="font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-soft);margin-top:28px;" class="sr">Chaque mission mobilise tout le réseau : la bonne expertise, au bon moment, au bon endroit.</p>
+
+    <div class="accordion team-accordion sr">
+      <div class="acc-item" data-acc id="team-silvio-rubatto">
+        <div class="acc-bar">
+          <span class="acc-thumb"><img src="/assets/silvio.webp" alt=""></span>
+          <span class="acc-title"><span class="acc-title-row">Silvio Rubatto<a class="member-linkedin" href="https://www.linkedin.com/in/silvio-rubatto-90619a11/" target="_blank" rel="noopener" aria-label="Silvio Rubatto sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></span><small>Fondateur · Business Quality</small></span>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="member-detail-body">
+<p class="member-bio">Dirigeant industriel international avec plus de 30 ans d'expérience en transformation d'entreprise, développement des procédés de fabrication et des technologies, Qualité et excellence opérationnelle — jusqu'au poste de Directeur Qualité Groupe chez SKF. A piloté des transferts de production internationaux, des industrialisations et des démarrages d'usines en Europe, aux États-Unis, en Chine et au Mexique, dont le transfert d'une ligne de production de 7 millions d'euros vers un nouveau site chinois. Au niveau Groupe, a développé des stratégies Qualité globales, la gestion des risques d'entreprise et des processus critiques tels que l'APQP, la gestion du changement et la gestion des réclamations. A créé un programme Zéro Défaut couvrant toute la chaîne de valeur, développé le Six Sigma et le Design for Six Sigma, et piloté un programme de digitalisation Qualité et EHS sur cinq ans, couvrant environ 200 sites, tout en assurant la conformité ISO 9001, AS9100 et IATF. A généré 20 millions d'euros d'économies sur les coûts de non-qualité, 15 millions via le Six Sigma Aérospatial, et une réduction de 55% des réclamations clients.</p>
+          <div class="member-cols">
+            <div><h5>Connaissances</h5><ul class="dlist">
+              <li><span><b>Leadership Mondial :</b> Automobile, Aérospatial, Ferroviaire, Énergies Renouvelables et autres secteurs industriels</span></li>
+              <li><span><b>Transformation d'Entreprise :</b> Conception et déploiement de processus mondiaux dans des organisations complexes et multiculturelles</span></li>
+              <li><span><b>Qualité &amp; Excellence Opérationnelle :</b> Stratégie et assurance qualité, Six Sigma, Design for Six Sigma, ISO 9001, IATF, AS9100 et IRIS</span></li>
+              <li><span><b>Programmes d'Amélioration :</b> Réduction des coûts de non-qualité, Zéro Défaut sur toute la chaîne de valeur, plateformes Qualité digitales</span></li>
+              <li><span><b>Projets &amp; Technologie :</b> Projets industriels complexes, développement de procédés, transferts de production internationaux</span></li>
+              <li><span><b>Formation &amp; Coaching :</b> Amélioration continue, gestion des risques, DMAIC et Design for Six Sigma</span></li>
+            </ul></div>
+            <div><h5>Compétences</h5><ul class="dlist">
+              <li>Proactif, persévérant, orienté données, direct, autonome, ouvert d'esprit, empathique et structuré</li>
+              <li>Habitué à travailler dans des organisations multiculturelles et matricielles</li>
+              <li>Reconnu pour un leadership orienté données, des organisations agiles et l'excellence opérationnelle</li>
+              <li>Certifié Black Belt</li>
+            </ul></div>
+            <div><h5>Personnel</h5><ul class="dlist">
+              <li>Binational franco-italien</li>
+              <li>Marié, 3 enfants</li>
+              <li>Nageur et cycliste</li>
+              <li>Passionné de football</li>
+            </ul></div>
+          </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item" data-acc id="team-domenico-ducci">
+        <div class="acc-bar">
+          <span class="acc-thumb"><img src="/assets/domenico.webp" alt=""></span>
+          <span class="acc-title">Domenico Ducci<small>Achats avancés</small></span>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="member-detail-body">
+<p class="member-bio">Professionnel expérimenté dans les secteurs Automobile et Aérospatial, avec une expertise en achats, supply chain, développement produit, ingénierie d'application, adoption technologique et développement commercial. Solide expérience dans la gestion des achats, l'optimisation logistique, la réduction des coûts, la coordination du cycle de vie produit et l'introduction de technologies émergentes. Compétent dans le développement de stratégies et de gammes de produits pour étendre la présence sur le marché, avec une expérience complémentaire dans la gestion de petites et moyennes entreprises d'assemblage et de contrôle de machines.</p>
+          <div class="member-cols">
+            <div><h5>Connaissances</h5><ul class="dlist">
+              <li><span><b>Développement Produit, Industrialisation &amp; Technologie :</b> Conception produit HBU, technologies d'usinage, développement de procédés de fabrication et industrialisation</span></li>
+              <li><span><b>Achats, Gestion Fournisseurs &amp; Relations Exécutives :</b> Sourcing stratégique et développement fournisseurs, combinés à un solide réseau exécutif et à l'engagement des parties prenantes</span></li>
+            </ul></div>
+            <div><h5>Compétences</h5><ul class="dlist">
+              <li>Reconnu pour sa vision stratégique, son leadership et son travail d'équipe pluridisciplinaire efficace</li>
+              <li><span><b>Réseau Exécutif &amp; Leadership Communautaire :</b> Construction de relations professionnelles solides et promotion de l'engagement via des réseaux managériaux et des événements</span></li>
+              <li>Certifié Black Belt</li>
+            </ul></div>
+            <div><h5>Personnel</h5><ul class="dlist">
+              <li>Italien</li>
+              <li>Marié, 1 enfant</li>
+            </ul></div>
+          </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item" data-acc id="team-rob-jenkinson">
+        <div class="acc-bar">
+          <span class="acc-thumb"><img src="/assets/rob.webp" alt=""></span>
+          <span class="acc-title">Rob Jenkinson<small>EHS et durabilité</small></span>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="member-detail-body">
+<p class="member-bio">Dirigeant senior en stratégie de durabilité et climat, avec environ 40 ans d'expérience industrielle mondiale, entre l'industrie manufacturière et automobile, en durabilité, opérations et ingénierie. A piloté un programme Net Zéro de Groupe (Scope 1, 2 et 3) aligné sur les objectifs SBTi, avec une expertise approfondie en CSRD/ESRS, CDP et autres reportings de durabilité. Solide expérience dans le pilotage de systèmes de management certifiés au niveau mondial conformes aux normes ISO 14001, 45001 et 50001, traduisant la stratégie en résultats concrets et alignés sur le métier, à travers les opérations et chaînes d'approvisionnement mondiales. A constitué et dirigé des équipes internationales et transverses, obtenant des réductions constantes d'émissions, une meilleure efficacité énergétique et une performance EHS améliorée.</p>
+          <div class="member-cols">
+            <div><h5>Connaissances</h5><ul class="dlist">
+              <li>Leadership mondial dans l'industrie manufacturière, l'automobile et les organisations multinationales complexes</li>
+              <li><span><b>Stratégie Climat &amp; Durabilité :</b> Trajectoire Net Zéro, alignement SBTi, CSRD/ESRS, CDP et autres reportings extra-financiers</span></li>
+              <li><span><b>Décarbonation Industrielle :</b> Gestion de l'énergie, réduction des émissions opérationnelles et engagement de la chaîne d'approvisionnement</span></li>
+              <li><span><b>Systèmes de Management &amp; Gouvernance :</b> ISO 14001, 45001, 50001 et intégration dans les processus métier</span></li>
+            </ul></div>
+            <div><h5>Compétences</h5><ul class="dlist">
+              <li>Pragmatique, orienté résultats et stratégique — capable de traduire l'ambition en plans concrets</li>
+              <li>Expérience dans des organisations mondiales, transverses et matricielles</li>
+              <li>Reconnu pour sa capacité à relier stratégie et exécution dans des environnements industriels complexes</li>
+              <li>Forte capacité à aligner les parties prenantes entre opérations, direction et cadres externes</li>
+            </ul></div>
+            <div><h5>Personnel</h5><ul class="dlist">
+              <li>Basé au Royaume-Uni, avec une large expérience internationale (Europe, États-Unis, Asie)</li>
+              <li>Marié, 3 enfants</li>
+              <li>Aime les activités de plein air et rester actif</li>
+              <li>Fort intérêt pour la durabilité, l'industrie et les solutions pratiques</li>
+            </ul></div>
+          </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item" data-acc id="team-giorgio-martinat">
+        <div class="acc-bar">
+          <span class="acc-thumb"><img src="/assets/martinat.webp" alt=""></span>
+          <span class="acc-title">Giorgio Martinat<small>Expert matériaux</small></span>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="member-detail-body">
+<p class="member-bio">Plus de 39 ans d'expérience, entièrement chez SKF, en métallurgie, traitement thermique, fabrication d'acier, analyse de défaillances et évaluation de la dégradation de la graisse des roulements. Expérience unique dans le développement et l'évaluation du procédé de traitement thermique par induction, en laboratoire comme en production. A contribué aux groupes de travail SKF pour la préparation des spécifications matériaux et traitement thermique, avec un fort engagement à développer matériaux, traitements thermiques et méthodes d'analyse pour les meilleurs résultats possibles.</p>
+          <div class="member-cols">
+            <div><h5>Connaissances</h5><ul class="dlist">
+              <li><span><b>Métallurgie :</b> Longue expérience dans l'évaluation de la microstructure de l'acier et l'optimisation des matériaux</span></li>
+              <li><span><b>Traitement Thermique :</b> Connaissance détaillée des équipements, de l'évaluation des résultats et des possibilités d'amélioration</span></li>
+              <li><span><b>Trempe par Induction :</b> Connaissance très détaillée de toutes les étapes du procédé et de la résolution de problèmes</span></li>
+              <li><span><b>Fabrication d'Acier :</b> Connaissance approfondie des procédés de fabrication de l'acier à roulements haute qualité et de leurs étapes critiques</span></li>
+              <li><span><b>Analyse de Défaillances :</b> Connaissance très détaillée des modes de défaillance des roulements et des techniques d'analyse des causes racines</span></li>
+              <li><span><b>Graisse pour Roulements :</b> Connaissance approfondie des types de graisse, de leurs processus de dégradation et de leur évaluation</span></li>
+            </ul></div>
+            <div><h5>Compétences</h5><ul class="dlist">
+              <li><span><b>Résolution de Problèmes :</b> Forte aptitude à identifier les causes racines des problèmes et leurs solutions</span></li>
+              <li><span><b>Orientation Innovation :</b> Forte motivation et capacité à trouver des solutions innovantes quand nécessaire</span></li>
+              <li><span><b>Leadership d'Équipe :</b> Forte aptitude à travailler en équipe et à accompagner le développement des collaborateurs</span></li>
+            </ul></div>
+            <div><h5>Personnel</h5><ul class="dlist">
+              <li>Marié, 1 fils</li>
+              <li>Passionné de randonnée, ski de fond, voyages, musique et ornithologie</li>
+            </ul></div>
+          </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="acc-item" data-acc id="team-bryan-dodson">
+        <div class="acc-bar">
+          <span class="acc-thumb"><img src="/assets/bryan.webp" alt=""></span>
+          <span class="acc-title"><span class="acc-title-row">Bryan Dodson<a class="member-linkedin" href="https://www.linkedin.com/in/bryan-dodson-01a0541/" target="_blank" rel="noopener" aria-label="Bryan Dodson sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a></span><small>Qualité produit et fiabilité</small></span>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="member-detail-body">
+<p class="member-bio">Autorité reconnue internationalement en Qualité et Fiabilité, le Dr. Bryan Dodson allie des décennies d'expertise technique à un leadership transformateur. Auteur de six ouvrages de référence et créateur du logiciel standard de la NASA pour l'analyse de fiabilité, il a défini des références mondiales et façonné les meilleures pratiques du secteur. Véritable agent de changement, il a mené des redressements majeurs — transformant un fournisseur Chrysler du pire au meilleur en qualité, et menant l'équipe design quality de Visteon vers une réduction de 30% des garanties annuelles pendant quatre années consécutives. Il a été pionnier des systèmes automatisés de gestion des garanties et d'un programme Design for Six Sigma axé sur la prévention, livrant des succès marquants tels que le Las Vegas High Roller (dans les temps, dans le budget) et le système d'actionnement Dassault Falcon (zéro défaut, 30% d'économies). Son impact a été récompensé par le prix Distinguished Alumni (Louisiana Tech University), le Forest R. McFarland Award de la SAE, et le statut de Fellow à la fois à l'ASQ et à la SAE.</p>
+          <div class="member-cols">
+            <div><h5>Connaissances</h5><ul class="dlist">
+              <li><span><b>Ingénierie des Systèmes Qualité :</b> Compréhension de la qualité à l'échelle du système — voix du client, développement produit, fabrication, fournisseurs, expédition, installation et stockage</span></li>
+              <li><span><b>Ingénierie Simultanée :</b> Intégration des ventes, du développement produit, de la fabrication, des fournisseurs et de la logistique pour livrer rapidement et efficacement des produits de haute qualité</span></li>
+              <li><span><b>Méthodes Statistiques Avancées :</b> Expertise approfondie, des très petits aux très grands jeux de données, incluant l'analyse de fiabilité et la modélisation système à partir de données composants</span></li>
+              <li><span><b>Systèmes de Données :</b> Développeur logiciel expert, conception et mise en œuvre de bases de données pour applications analytiques et d'ingénierie complexes</span></li>
+            </ul></div>
+            <div><h5>Compétences</h5><ul class="dlist">
+              <li>Capable d'engager et de collaborer avec tous les niveaux organisationnels, des dirigeants au personnel d'atelier</li>
+              <li>Habile à simplifier des concepts statistiques complexes pour des publics non techniques</li>
+              <li>Diagnostic rapide des causes racines de problèmes complexes et mise en œuvre de solutions durables</li>
+              <li>Traduit des données complexes en stratégies d'entreprise claires et actionnables</li>
+              <li>Identifie des opportunités de réduction des coûts et d'amélioration de l'efficacité sur plusieurs sites</li>
+              <li>Formateur efficace, délivrant une formation permettant une application pratique et des résultats mesurables</li>
+            </ul></div>
+            <div><h5>Personnel</h5><ul class="dlist">
+              <li>Marié, 2 enfants</li>
+              <li>Nageur</li>
+              <li>Amoureux de la nature</li>
+            </ul></div>
+          </div>
+          </div>
+        </div></div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 

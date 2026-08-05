@@ -150,12 +150,14 @@
   .team-row{grid-template-columns:1fr 1fr;}
   .team-row .member:last-child{ grid-column:1/-1; max-width:calc(50% - 14px); margin:0 auto; }
 }
-.member { text-align:left; }
+.member { text-align:left; display:block; text-decoration:none; color:inherit; }
 .avatar { aspect-ratio:1/1.18; width:100%; height:auto; background:repeating-linear-gradient(-45deg,var(--paper-2) 0 10px,#EDE5D6 10px 20px); border:1px solid var(--hair); display:flex; align-items:center; justify-content:center; margin-bottom:16px; overflow:hidden; }
 .avatar span { font-family:var(--serif); font-style:italic; font-size:36px; color:var(--terra); opacity:.85; }
-.avatar img { width:100%; height:100%; object-fit:cover; object-position:center top; }
-.member b { display:block; font-family:var(--serif); font-weight:500; font-size:17px; }
+.avatar img { width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform .5s cubic-bezier(.2,.65,.2,1); }
+.member b { display:block; font-family:var(--serif); font-weight:500; font-size:17px; transition:color .2s; }
 .member small { color:var(--ink-soft); font-size:13px; }
+.member:hover .avatar img { transform:scale(1.04); }
+.member:hover b { color:var(--terra); }
 </style>
 </head>
 <body>
@@ -358,11 +360,11 @@
         </ul>
       </div>
       <div class="team-row sr">
-        <div class="member"><div class="avatar"><img src="/assets/silvio.webp" alt="Silvio Rubatto"></div><b>Silvio Rubatto</b><small>Business Quality</small></div>
-        <div class="member"><div class="avatar"><img src="/assets/bryan.webp" alt="Bryan Dodson"></div><b>Bryan Dodson</b><small>Qualité produit et fiabilité</small></div>
-        <div class="member"><div class="avatar"><img src="/assets/domenico.webp" alt="Domenico Ducci"></div><b>Domenico Ducci</b><small>Achats avancés</small></div>
-        <div class="member"><div class="avatar"><img src="/assets/filippo.webp" alt="Filippo Zingariello"></div><b>Filippo Zingariello</b><small>Développement produit et technologie</small></div>
-        <div class="member"><div class="avatar"><img src="/assets/rob.webp" alt="Rob Jenkinson"></div><b>Rob Jenkinson</b><small>EHS et durabilité</small></div>
+        <a class="member" href="/fr/about#team-silvio-rubatto"><div class="avatar"><img src="/assets/silvio.webp" alt="Silvio Rubatto"></div><b>Silvio Rubatto</b><small>Business Quality</small></a>
+        <a class="member" href="/fr/about#team-domenico-ducci"><div class="avatar"><img src="/assets/domenico.webp" alt="Domenico Ducci"></div><b>Domenico Ducci</b><small>Achats avancés</small></a>
+        <a class="member" href="/fr/about#team-rob-jenkinson"><div class="avatar"><img src="/assets/rob.webp" alt="Rob Jenkinson"></div><b>Rob Jenkinson</b><small>EHS et durabilité</small></a>
+        <a class="member" href="/fr/about#team-giorgio-martinat"><div class="avatar"><img src="/assets/martinat.webp" alt="Giorgio Martinat"></div><b>Giorgio Martinat</b><small>Expert matériaux</small></a>
+        <a class="member" href="/fr/about#team-bryan-dodson"><div class="avatar"><img src="/assets/bryan.webp" alt="Bryan Dodson"></div><b>Bryan Dodson</b><small>Qualité produit et fiabilité</small></a>
       </div>
       <p style="margin-top:24px;" class="sr"><a class="btn-line" href="/fr/about">Rencontrer toute l'équipe →</a></p>
     </div>
