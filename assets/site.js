@@ -14,6 +14,35 @@
     bar.addEventListener('click', () => item.classList.toggle('open'));
   });
 
+  // Team profiles: clicking a card in the team-grid opens & scrolls to that
+  // person's full profile in the accordion below (about page only).
+  function openTeamMember(slug) {
+    const item = document.getElementById(`team-${slug}`);
+    if (!item) return;
+    item.classList.add('open');
+    requestAnimationFrame(() => {
+      const y = item.getBoundingClientRect().top + window.scrollY - 96;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  }
+  document.querySelectorAll('.member-card[data-member]').forEach((card) => {
+    card.addEventListener('click', () => openTeamMember(card.dataset.member));
+  });
+
+  // Don't let a LinkedIn icon click also toggle the accordion bar it sits in
+  document.querySelectorAll('.member-linkedin').forEach((a) => a.addEventListener('click', (e) => e.stopPropagation()));
+
+  // Deep-link into a team member's profile from another page, e.g. /about#team-silvio-rubatto
+  function openTeamMemberFromHash() {
+    const hash = window.location.hash;
+    if (!hash.startsWith('#team-')) return;
+    openTeamMember(hash.slice(6));
+  }
+  if (document.querySelector('.team-accordion')) {
+    openTeamMemberFromHash();
+    window.addEventListener('hashchange', openTeamMemberFromHash);
+  }
+
   // Animated counters ([data-count])
   const counters = document.querySelectorAll('[data-count]');
   if (counters.length) {
