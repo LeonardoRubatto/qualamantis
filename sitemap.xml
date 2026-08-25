@@ -152,36 +152,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qualamantis.com/contact"/>
   </url>
   <url>
-    <loc>https://qualamantis.com/digital</loc>
-    <lastmod>2026-07-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qualamantis.com/digital"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://qualamantis.com/it/digital"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://qualamantis.com/fr/digital"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qualamantis.com/digital"/>
-  </url>
-  <url>
-    <loc>https://qualamantis.com/it/digital</loc>
-    <lastmod>2026-07-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qualamantis.com/digital"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://qualamantis.com/it/digital"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://qualamantis.com/fr/digital"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qualamantis.com/digital"/>
-  </url>
-  <url>
-    <loc>https://qualamantis.com/fr/digital</loc>
-    <lastmod>2026-07-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qualamantis.com/digital"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://qualamantis.com/it/digital"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://qualamantis.com/fr/digital"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qualamantis.com/digital"/>
-  </url>
-  <url>
     <loc>https://qualamantis.com/about</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
