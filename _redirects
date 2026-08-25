@@ -12,6 +12,9 @@
 /product-quality-reliability/ /services#design-engineering 301
 /innovation-events/ /services#design-engineering 301
 /intellectual-property-expertise/ /services#design-engineering 301
-/digitalisation/ /digital 301
+/digitalisation/ /services#digitalisation 301
+/digital /services#digitalisation 301
+/it/digital /it/services 301
+/fr/digital /fr/services 301
 /privacy-policy/ /legal 301
 /cookie-policy/ /legal 301
